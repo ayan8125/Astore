@@ -1,0 +1,267 @@
+{% load static %}
+{% load mathfilters %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+ 
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Bitter|Fjalla+One|Modak|Saira+Stencil+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'plumber/orders.css' %}">
+    <script src="https://kit.fontawesome.com/784b66feb8.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  
+    <!-- font-family: c
+font-family: 'Fjalla One', sans-serif;
+font-family: 'Bitter', serif;
+font-family: 'Saira Stencil One', cursive; -->
+</head>
+<style>
+
+    .ord1:hover{
+        cursor: pointer;
+        border-bottom: 2px solid #eb648c !important;
+        border-top: 2px solid #eb648c !important;
+    }
+</style>
+<body style="background-color: #eb648c;">
+    <header>
+    <div class="container" id="head">
+        <nav>
+            <div class="brand" >
+            <a href="#" style="color: white;font-size:3rem;text-decoration: none;">
+                Ayan
+            </a>
+        </div>
+        <div class="menu">
+                <!-- <i class="fas fa-bars" onclick="myfunction()"></i> -->
+                <ul class="nav-list" id="navs">
+                
+                <li class="nav-items">
+                    <a href="{% url 'profile' username %}" class="nav-link" style="color: #fafafa;"><i class="fas fa-user" style="cursor: pointer;"></i></a> 
+            </li>
+   
+                <li class="nav-items">
+                        <a href="{% url 'hires' username %}" class="nav-link" id="logout" style="color: #fafafa;"><i class="fas fa-bell"></i></a>
+                
+                    </li>
+                    <li class="nav-items">
+                            <a href="{% url 'valid_user' username %}" class="nav-link" style="color: #fafafa;"><i class="fas fa-home"  style="cursor: pointer;"></i></a>
+                    
+                        </li>
+
+                </ul>
+        </div>
+    
+        </nav>
+    </div>
+
+    </header>
+  <br>
+    
+  <main id="main1">
+    <section class="hero">
+
+<div class="head" style="margin: 2rem auto;background:white;width:100%;height: auto;colo:black;">
+    <h1 style="color: black;font-size:2rem;font-family:'Bitter';margin: 2rem;padding:5rem;">Payments & Billing</h1>
+</div>
+
+
+
+
+                    <div class="container" id="con">
+                           
+                                    {% if status1 %}
+                                    <div class="alert alert-success" role="alert" style="background: #fafafa;color:black;  font-family: 'Bitter', serif;height: 5rem;">
+                                            <h4 class="alert-heading">No Orders Till Now!</h4>
+                                           
+                                            <hr style="color: #eb648c !important;">
+                                          
+                                                
+                                        
+                                            
+                                   </div>
+                                    {% else %}
+                                    <div class="alert alert-success" role="alert" style="background: #fafafa;color:black;  font-family: 'Bitter', serif;">
+                                <div class="content-section" >
+                                   
+
+                                  
+                                      
+                                  
+                                   
+                                            <h4 class="alert-heading">Your Cart!</h4>
+                                            <br>
+                                          
+                                            {% for ords in order %}
+                                            <p>Hired {{ ords.product}}</p>
+                                           <div class="grid" style="display: flex;justify-content: space-between;">
+                                                
+                                           <div class="grid1">
+                                               
+                                  
+                                                <p> Amount</p>
+                                     
+                                                <p> Date: {{ ords.order_date|date:"D, d M, Y" }}</p>
+                                           </div>
+                                           <div class="div2">
+                                        
+                                               
+                                            
+                                                <!-- <p style="width: 10rem;height:0.4rem;background:#eb648c;color:#eb648c;"></p> -->
+                                                <p id="tot"> <i class="fas fa-rupee-sign"></i> {{ ords.cost }}</p>
+                                                <!-- <p style="width: 10rem;height:0.4rem;background:#eb648c;color:#eb648c;"></p> -->
+                                                <p>Duration:  {{ords.days }} Days</p>
+                                                
+                                               
+                                           </div>
+                                      
+                                        </div>
+                                        <br>
+                                        <hr>
+                                        <br>
+                                        {% endfor %}
+                                    </div>
+                                    
+                                   
+                                     <div class="grid" style="display: flex;justify-content: space-evenly;">
+                                                
+                                            <div class="grid1">
+                                                
+                                   
+                                                <p style="color: black;">Total Amount</p>
+                                                <p style="color: black;">Discount</p>
+                                                <p id="tot" style="color:white;"> - {{ discount_amount }}</p>
+                                                <p id="tot" style="color:white;"> - {{ discount_amount }}</p>
+                                                <p style="width: 10rem;height:0.4rem;background:white;color:white;"></p>
+                                                <p id="tot" style="">  Grand Total</p>
+                                                <p style="width: 10rem;height:0.4rem;background:white;color:white;"></p>
+                                            </div>
+                                            <div class="div2">
+                                         
+                                                
+                                             
+                                                 <p id="tot"> <i class="fas fa-rupee-sign"></i> {{ total }}</p>
+                                                 <p id="tot">  {{ discounts }}%</p>
+                                                 <p id="tot"> {{ total }}</p>
+                                                 <p id="tot"> - {{ discount_amount }}</p>
+                                                 <p style="width: 10rem;height:0.4rem;background:#eb648c;color:#eb648c;"></p>
+                                                 <p id="tot"> <i class="fas fa-rupee-sign"></i> {{ total_amount }}</p>
+                                                 <p style="width: 10rem;height:0.4rem;background:#eb648c;color:#eb648c;"></p>
+                                                 
+                                                
+                                            </div>
+                                       
+                                         </div>
+                                    
+
+                                            <div style="margin: 10px auto !important;text-align: center;">
+
+                                                <button style="width: 100%;  font-family: 'Bitter', serif;background:#33ccff;color:white;padding: 1rem;font-size: 2rem;border: 2px solid #33ccff;">Checkout</button>
+                                            </div>
+                                            
+                                        </div>
+                                        {% endif %}
+                                       
+                        
+                        
+                            <div class="main-message">
+                             
+                                    <img src="{% static 'plumber/ma2.png' %}">
+                                  
+                                </div>
+                        </div>
+         
+
+
+    </section >
+
+</main>
+<div class="pop" id="pop1" style="    position:absolute;
+left:50%;
+bottom:50%;
+transform: translate(-50%,-50%);
+position:fixed;
+z-index:999999;;background-color:white;width: 35rem;margin: 10px auto;height: 10rem;font-family: sans-serif;display: none; border-top-left-radius: 1rem;border-top-right-radius: 1rem;border-bottom-right-radius: 1rem;border-bottom-left-radius: 1rem;"> 
+      <h3 style="padding: 1rem;">Are you Sure You Want to logout? </h3>
+      <div>
+        <a href="{% url 'login'  %}" style="text-decoration: none;"><button id="bnt" class="btn btn-alerts"   style="background-color:  #ff4d4d;padding: 1rem;color: white;border-top-left-radius: 1rem;border-top-right-radius: 1rem;border-bottom-left-radius: 1rem;border-bottom-right-radius:1rem;">YES, Sure</button></a>
+        <button id="bnt1" class="btn-alerts" onclick="back()" style="color:white;background-color:#03a02a;padding: 1rem;border:none;border-top-left-radius: 1rem;border-top-right-radius: 1rem;border-bottom-left-radius: 1rem;border-bottom-right-radius:1rem;">No, Cancel</button>
+        <!-- <button type="button" class=" btn-outline-success">Success</button>
+<button type="button" class=" btn-outline-danger">Danger</button> -->
+    </div>
+    <style>
+        
+        #bnt:hover{
+            color: black ;
+          background-color: #e91818 !important;
+        }
+        #bnt1:hover{
+            color: black ;
+          background-color: #22b804 !important;
+        }
+         #div2 p::after{
+            content: "helloo";
+            color:black;
+            width: 5rem;
+            background: #eb648c;
+
+         }
+      </style>
+
+</div>
+    <footer style="font-size: 1.5rem;font-weight:bold;">
+        &copy;2019 All Rights Reserved By Ayan Shaikh 
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+ 
+
+</body>
+<script>
+ 
+ function logout()
+ {
+    document.getElementById
+ }
+
+
+function back()
+{
+    document.getElementById('main1').style.opacity="1";
+    document.getElementById('pop1').style.display="none";
+}
+
+function pop(){
+    document.getElementById('main1').style.opacity="0.2";
+    document.getElementById('pop1').style.display="block";
+}
+
+</script>
+<script>
+function myfunction()
+{
+    document.getElementById('navs').style.right=0;
+  
+    document.getElementById('con1').style.opacity=0.3;
+    document.getElementById('con').style.opacity=0.3;
+
+}
+
+function myfunction1()
+{
+    document.getElementById('navs').style.right="-26rem";
+  
+    document.getElementById('con1').style.opacity=1;
+    document.getElementById('con').style.opacity=1;
+
+}
+</script>
+
+
+</html>

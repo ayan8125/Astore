@@ -1,0 +1,246 @@
+
+
+{% load static %}
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+ 
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Bitter|Fjalla+One|Modak|Saira+Stencil+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'plumber/signup1.css' %}">
+    <script src="https://kit.fontawesome.com/784b66feb8.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  
+    <!-- font-family: c
+font-family: 'Fjalla One', sans-serif;
+font-family: 'Bitter', serif;
+font-family: 'Saira Stencil One', cursive; -->
+</head>
+
+<body>
+    <header>
+    <div class="container" id="head">
+        <nav>
+            <div class="brand" >
+            <a href="#" style="color: white;font-size:3rem;text-decoration: none;">
+                Ayan
+            </a>
+        </div>
+        <div class="menu">
+            <!-- <i class="fas fa-bars" onclick="myfunction()"></i> -->
+            <ul class="nav-list" id="navs" style="display: flex;
+            flex-direction: column !;
+            align-items: center;
+            justify-content: center;">
+            
+            
+            <li class="nav-items">
+                <a href="{% url 'plum-home' %}" class="nav-link" style="color: #fafafa;">Home</a> 
+        </li>
+            <li class="nav-items">
+                <a href="{% url 'login' %}" class="nav-link" style="color: #fafafa;">Login</a>
+        
+            </li>
+            </ul>
+    </div>
+    
+        </nav>
+    </div>
+
+    </header>
+  <br>
+  <main>
+    <section class="hero">
+
+
+
+
+
+
+
+
+    
+         
+    <div class="container" id="con" style="text-align: center;">
+     <div class = "otp " style="text-align: center;border-radius: 1rem;">
+        <div style="text-align: center;">
+            <form method="POST">
+                {% csrf_token %}
+           <fieldset>
+        <div class="sigup" style="background-color: #eb648c; color: white;height:5rem;margin-bottom: 2rem;">
+            <h5 style="text-align: center;font-size:2rem;padding-top:1rem;font-family:bitter">Signup</h5>
+        </div>
+               <!-- {{ form.as_p }} -->
+               {% for field in form %}
+                  {{ field }}
+    
+                  {% if invalid_user or user_exist %}
+                  {% if field.auto_id == 'id_Username' %}
+                        <style>
+            
+                        #id_Username{ 
+            
+                        border-bottom: 2px solid red;
+                        
+                        }
+                        /* #id_phonenumber::after{
+                            content:'Enter the valid Password';
+                        } */
+                        </style>
+                       
+                           
+                  {% endif %}
+               
+                 
+    
+                  {% endif %}
+    
+                  {% if passnot %}
+                  {% if field.auto_id == 'id_password' %}
+                        <style>
+            
+                        #id_password{ 
+            
+                        border-bottom: 2px solid red;
+                        
+                        }
+                        /* #id_phonenumber::after{
+                            content:'Enter the valid Password';
+                        } */
+                        </style>
+                       
+                           
+                  {% endif %}
+               
+                 
+    
+                  {% endif %}
+    
+    
+                  {% if passnot %}
+                  {% if field.auto_id == 'id_passwordconfirm' %}
+                        <style>
+            
+                        #id_passwordconfirm{ 
+            
+                        border-bottom: 2px solid red;
+                        
+                        }
+                        /* #id_phonenumber::after{
+                            content:'Enter the valid Password';
+                        } */
+                        </style>
+                       
+                           
+                  {% endif %}
+               
+                 
+    
+                  {% endif %}
+            
+               {% endfor %}
+             
+    
+    
+               <div class="errors alert alert-warning" id="e1" style="color: black;z-index:151515;width:32rem;margin: 0px auto;text-align: initial;font-size: 1.5rem;display: none;">
+                <ul style="display: block;flex-direction:initial;list-style: lower-greek;">
+                 <li id="name_error"  style="color: black;text-transform:initial;list-style: none;"></li>
+                 <li id="last_error" style="color: black;text-transform:initial;list-style: none;"></li>
+                 <li id="email_error" style="color: black;text-transform:initial;list-style: none;"></li>
+                 <li id="num_error" style="color: black;text-transform:initial;list-style: none;"></li> 
+                </ul>
+            </div>
+    
+    
+    
+                <div style="padding-top:1rem;padding-bottom:1rem;">
+               <button class="sub"  style="
+                width: 15rem;
+                height: 5rem;
+                padding: 1rem;
+                background: #eb648c;
+                color: white;font-size: 2rem;
+                font-weight: bold;
+                text-decoration: none;
+                border: 2px solid #eb648c;
+              border-radius: 2rem;
+            
+            "> Next  <small><i class="fas fa-arrow-right"></i></small> </button>
+               </div>
+               <h5 style="color: black;text-transform:initial;font-size:1.2rem;font-weight: bold">Already Have An Account? <a href="{% url 'login' %}" style="text-decoration: none;color:purple;"> Login</a></h5>
+           </fieldset>
+       
+            </form>
+          
+            {% if passnot %}
+            <script>
+                document.getElementById('e1').style.display="block";
+                document.getElementById('name_error').innerHTML = "Password not match";
+                document.getElementById('name_error').style.listStyle="initial";
+            </script>           
+            {% endif%}
+            {% if invalid_user %}
+            <script>
+                document.getElementById('e1').style.display="block";
+                document.getElementById('last_error').innerHTML = "Please chose the valid username";
+                document.getElementById('last_error').style.listStyle="initial";
+            </script>
+    
+            {% endif%}
+            {% if user_exist %}
+            <script>
+                document.getElementById('e1').style.display="block";
+                document.getElementById('email_error').innerHTML = "Username is already taken,Please Choose another one";
+                document.getElementById('email_error').style.listStyle="initial";
+            </script>
+    
+            {% endif%}
+    
+    
+           </div>
+                               
+                                    
+                                </div>
+                            <div class="main-message1">
+                             
+                                <img src="{% static 'plumber/ma2.png' %}">
+                              
+                            </div>
+                    
+                        </div>
+      
+            
+    
+     
+      
+
+    </section >
+
+
+   
+</main>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+ 
+
+</body>
+
+
+</html>
+
+
+
+
+
+
+

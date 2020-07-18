@@ -1,0 +1,1308 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+ 
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Bitter|Fjalla+One|Modak|Saira+Stencil+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'plumber/home.css' %}">
+    <script src="https://kit.fontawesome.com/784b66feb8.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  
+    <!-- font-family: c
+font-family: 'Fjalla One', sans-serif;
+font-family: 'Bitter', serif;
+font-family: 'Saira Stencil One', cursive; -->
+</head>
+<style>
+
+#id_profile{
+    background-color: rgba(72,56,149,0.8);
+    border:none;
+}
+</style>
+<body>
+
+    <header>
+    <div class="container" id="head">
+        <nav>
+            <div class="brand" >
+            <a href="#" style="color: white;font-size:3rem;text-decoration: none;">
+                Ayan
+            </a>
+        </div>
+        <div class="menu">
+                <!-- <i class="fas fa-bars" onclick="myfunction()"></i> -->
+                <ul class="nav-list" id="navs">
+                
+               
+                <li class="nav-items">
+                    <a href="#" class="nav-link" style="color: #fafafa;"><i class="fas fa-shopping-cart" style="cursor: pointer;"></i></a> 
+            </li>
+                <li class="nav-items">
+                    <a href="#" class="nav-link" style="color: #fafafa;"><i class="fas fa-home"  style="cursor: pointer;"></i></a>
+            
+                </li>
+                <li class="nav-items">
+                    <a href="#" class="nav-link" id="logout" onclick="pop()" style="color: #fafafa;"><i class="fas fa-sign-out-alt" style="cursor: pointer;"></i></a>
+            
+                </li>
+            
+                </ul>
+        </div>
+    
+        </nav>
+    </div>
+
+    </header>
+  <br>
+    
+  <main id="main1">
+    <section class="hero">
+
+
+
+
+
+
+                    <div class="container" id="con">
+                       
+                            <div class="content-section" style="width:450px;margin:2rem auto;">
+
+                                                    <div class="edit" id="profile1" style="padding-top:2rem;">
+                                                        <h4>Here you can change your addres and Phonenumber to currents one.
+                                                        </h4>
+                                                        <br>
+                                                        <br>
+                                                        <h5>Phonenumber</h5>
+                                                    <form method="POST" enctype="multipart/form-data" style="background:none;">
+                                                        {% csrf_token %}
+                                                   <fieldset>
+                                       
+
+                                                
+                                                       {% for field in forms %}
+                                                          {{ field }}
+                                                          <style>
+                                                          input{
+                                                              background: none;
+                                                              color: white;
+                                                              width: 35rem;
+                                                              
+                                                          }
+                                                          #id_address1{
+                                                            background: none;
+                                                              color: white;
+                                                              width: 35rem;
+                                                              padding-left: 1.5rem;
+                                                          }
+                                                          #id_address12{
+                                                            background: none;
+                                                              color: white;height: 4rem;
+                                                              width: 35rem;
+                                                              padding-left: 1.5rem;
+                                                          }
+                                                          #id_city{
+                                                            background: none;
+                                                              color: white;
+                                                              width: 35rem;
+                                                          }
+                                                          #id_zipcode{
+                                                            background: none;
+                                                              color: white;height: 4rem;
+                                                              width: 35rem;
+                                                          }
+                                                          #id_email{
+                                                            background: none;
+                                                              color: white;
+                                                              width: 35rem;
+                                                          }
+                                                          #id_firstname{
+                                                            background: none;
+                                                              color: white;height: 4rem;
+                                                              width: 35rem;
+                                                          }
+
+                                                          #id_address1{
+                                                            background: none;
+                                                              color: white;
+                                                              width: 35rem;
+                                                          }
+                                                          #id_lastname{
+                                                            background: none;
+                                                              color: white;height: 4rem;
+                                                              width: 35rem;
+                                                          }
+                                                          #id_Phonenumber2{
+                                                              width: 35rem;
+                                                              font-size: 1.5rem;
+                                                          }
+
+                                                          #id_Phonenumber{
+        
+                                                              width: 35rem;
+                                                              font-size: 1.5rem;
+                                                          }
+                                                          #id_state{
+                                                        
+                                                              width: 35rem;
+                                                              font-size: 1.5rem;
+                                                          }                                                         
+                                                          </style>
+                                                          {% if field.auto_id == 'id_address1' or field.auto_id == 'id_address12' %}
+                                                          <style>
+                                                          
+                                                          #id_address1{
+                                                            height: 4rem;
+                                                          }
+                                                          #id_address12{
+                                                              height: 4rem;
+                                                          }
+                                                          
+                                                          </style>
+
+                                                          {% endif %}
+                                                
+                                                          {% if field.auto_id == 'id_profile' or field.auto_id == 'id_email' or field.auto_id == 'id_Phonenumber2' or field.auto_id == 'id_state' %}
+
+                                                           <br>
+
+                                                          {% endif %}
+
+                                                          {% if field.auto_id == 'id_Phonenumber2' or field.auto_id == 'id_Phonenumber' or field.auto_id == 'id_state' %}
+                                                          <style>
+                                                          
+                                                                #id_Phonenumber{
+                                                                  height: 4rem;
+                                                                  width: 24rem;
+                                                                  border: none;
+                                                                  border-bottom: 2px solid #eb648c;
+                                                                }
+                                                                #id_Phonenumber2{
+                                                                    height: 4rem;
+                                                                    width: 24rem;
+                                                                    border: none;
+                                                                    border-bottom: 2px solid #eb648c;
+                                                                }
+                                                                #id_state{
+                                                                    height: 4rem;
+                                                                    width: 24rem;
+                                                                    border: none;
+                                                                    border-bottom: 2px solid #eb648c;
+                                                                }
+                                                                
+                                                                </style>
+
+                                                          {% endif %}
+                                                          {% if field.auto_id == 'id_Phonenumber2' %}
+                                                     
+                                                          <style>
+                                                          #id_Phonenumber2{
+                                                              background: none;
+                                                              color: white;
+                                                          }
+                                                          #id_Phonenumber::before{
+                                                              content: 'Set an alternate Number'
+                                                          }
+                                                          </style>
+                                                       {% endif %}        
+                                                       {% if field.auto_id == 'id_profile' %}
+                                                       <style>
+                                                       #id_profile{
+                                                           width: 20rem;
+                                                           padding-left: initial !important;
+                                                       }
+                                                       </style>
+                                                       <h5>Firstname</h5>
+                              
+                                                    {% endif %} 
+                                                    {% if field.auto_id == 'id_firstname' %}
+                                                    <h5>lastname</h5>
+                           
+                                                 {% endif %} 
+                                                 {% if field.auto_id == 'id_lastname' %}
+                                                 <h5>Email</h5>
+                        
+                                              {% endif %} 
+                                              {% if field.auto_id == 'id_email' %}
+                                              <h5>Phonenumber</h5>
+                     
+                                           {% endif %}                                                 
+                                           {% if field.auto_id == 'id_Phonenumber' %}
+                                           <h5>Alternate Number</h5>
+                  
+                                        {% endif %} 
+                                        {% if field.auto_id == 'id_Phonenumber2' %}
+                                        <h5>State</h5>
+               
+                                     {% endif %} 
+                                     {% if field.auto_id == 'id_state' %}
+                                     <h5>Address</h5>
+            
+                                  {% endif %} 
+                                  {% if field.auto_id == 'id_address1' %}
+                                  <h5>Line 2</h5>
+         
+                               {% endif %} 
+                               {% if field.auto_id == 'id_address12' %}
+                               <h5>City</h5>
+      
+                            {% endif %}          
+                            {% if field.auto_id == 'id_city' %}
+                            <h5>Zipcode</h5>
+   
+                  {% endif %}
+
+
+                  {% if field.auto_id == 'id_city' or field.auto == 'id_address1' or field.auto == 'id_address12' %}
+                <style>
+                #id_address1{
+                    margin-bottom: 2rem;
+                }
+                #id_city{
+                    margin-bottom: 2rem;
+                }
+                #id_address12{
+                    margin-bottom: 2rem;
+                }
+                
+                </style>
+        {% endif %}
+                                                       {% endfor %}
+
+                                
+                                                   </fieldset>
+                                              <a href="#"><button class="edit1 btn btn-success"  style="background:  #006600;border:2px solid white;font-size:1.5rem;padding:1rem;color:white;border-top-left-radius: 1rem;border-top-right-radius: 1rem;border-bottom-left-radius: 1rem;border-bottom-right-radius: 1rem;">Make Changes</button></a>
+                                               <a href="{% url 'valid_user' username %}" ><button class="edit12"  style="background:  #33bbff;border:2px solid white;font-size:1.7rem;padding:1rem;color:white;border-top-left-radius: 1rem;border-top-right-radius: 1rem;border-bottom-left-radius: 1rem;border-bottom-right-radius: 1rem;">&nbsp;&nbsp;Cancel and confirm my Booking &nbsp;&nbsp;</button></a>
+                                                    </form>
+                                                <style>
+                                                .edit1:hover{
+                                               background-color: red;
+                                                  }
+                                                </style>
+                                                </div>
+                                               
+                                            </div>
+                            <div class="main-message">
+                             
+                                    <img src="{% static 'plumber/ma2.png' %}">
+                                  
+                                </div>
+                        </div>
+         
+
+
+    </section >
+</main>
+
+<div class="pop" id="pop1" style="    position:absolute;
+left:50%;
+bottom:50%;
+transform: translate(-50%,-50%);
+position:fixed;
+z-index:999999;;background-color:white;width: 35rem;margin: 10px auto;height: 10rem;font-family: sans-serif;display: none; border-top-left-radius: 1rem;border-top-right-radius: 1rem;border-bottom-right-radius: 1rem;border-bottom-left-radius: 1rem; transition: all 650ms ease-in-out;"> 
+      <h3 style="padding: 1rem;">Are you Sure You Want to logout? </h3>
+      <div>
+        <a href="{% url 'login'  %}" style="text-decoration: none;"><button id="bnt" class="btn btn-alerts"   style="background-color:  #ff4d4d;padding: 1rem;color: white;border-top-left-radius: 1rem;border-top-right-radius: 1rem;border-bottom-left-radius: 1rem;border-bottom-right-radius:1rem;">YES, Sure</button></a>
+          <button id="bnt1" class="btn-alerts" onclick="back()" style="color:white;background-color:#03a02a;padding: 1rem;border:none;border-top-left-radius: 1rem;border-top-right-radius: 1rem;border-bottom-left-radius: 1rem;border-bottom-right-radius:1rem;">No, Cancel</button>
+          <!-- <button type="button" class=" btn-outline-success">Success</button>
+<button type="button" class=" btn-outline-danger">Danger</button> -->
+      </div>
+
+
+
+
+
+      <!-- <div class="pop" id="pop1" style="    position:absolute;
+      left:50%;
+      bottom:50%;
+      transform: translate(-50%,-50%);
+      position:fixed;
+      z-index:999999;;background-color:white;width: 35rem;margin: 10px auto;height: 10rem;font-family: sans-serif; border-top-left-radius: 1rem;border-top-right-radius: 1rem;border-bottom-right-radius: 1rem;border-bottom-left-radius: 1rem; transition: all 650ms ease-in-out;">  -->
+    <div style="text-align: center;height: 25rem;" >
+            <form method="POST">
+                {% csrf_token %}
+           <fieldset>
+               <legend id="leg" style="color: black;font-size: 1.5rem;text-transform: initial;padding-top: 1rem;padding-bottom: 1rem;font-family:sans-serif;">
+                  Please enter an one time password which  has been send at  your mobile Number.
+               </legend>
+               <!-- {{ form.as_p }} -->
+               {% for field in forms %}
+                  {{ field }}
+    
+                  {% if nootp %}
+                  {% if field.auto_id == 'id_otp' %}
+                        <style>
+            
+                        #id_otp{ 
+            
+                        border-bottom: 2px solid red;
+                       
+                        
+                        }
+
+                        </style>
+                       
+                           
+                  {% endif %}
+               
+                 
+    
+                  {% endif %}
+    
+    
+    
+            
+               {% endfor %}
+             
+    
+    <style>
+    #id_otp{
+        width: 25rem;
+        height: 4rem;
+        border: none;
+        border-bottom: 2px solid #eb648c;
+
+    }
+    input{
+        padding-left: 0.5rem;
+        font-size: 1.5rem;
+    }</style>
+ 
+               <div class="errors alert alert-warning" id="e1" style="color: black;z-index:151515;width:32rem;margin: 0px auto;text-align: initial;font-size: 1.5rem;display: none;">
+                <ul style="display: block;flex-direction:initial;list-style: lower-greek;">
+                 <li id="name_error"  style="color: black;text-transform:initial;list-style: none;"></li>
+                 <li id="last_error" style="color: black;text-transform:initial;list-style: none;"></li>
+                </ul>
+            </div>
+    
+    
+    
+                <div style="padding-top:1rem;padding-bottom:1rem;">
+               <button class="sub" id="sub1" style="
+                width: 15rem;
+                height: 4rem;
+                padding: 0.5rem;
+                background: #eb648c;
+                color: white;font-size: 2rem;
+                font-weight: bold;
+                text-decoration: none;
+            
+            "> Submit </button>
+               </div>
+             <h6 id="rec" style="color: black;text-transform: initial;font-size: 1rem;">Did Not Recieve an otp? <a href="{% url 'auth' %}" style="color: black;text-decoration:none;font-weight:bold;font-size: 1rem;">Resend</a></h6>
+
+           </fieldset>
+       
+            </form>
+            {% if success %}
+ 
+    
+            <script>
+            document.getElementById('e1').style.display="none";
+            document.getElementById('leg').style.display="none";
+            document.getElementById('sub1').style.display="none";
+            document.getElementById('rec').style.display="none";
+            document.getElementById('tip').style.display="block";
+            document.getElementById('otp1').style.height = "13rem";
+            </script>
+           {% endif%}
+            {% if  wrongpass %}
+            <script>
+                document.getElementById('e1').style.display="block";
+                document.getElementById('last_error').innerHTML = "Please Enter the Correct Password";
+                document.getElementById('last_error').style.listStyle="initial";
+              
+            </script>           
+            {% endif%}
+            {% if  nootp %}
+            <script>
+                document.getElementById('e1').style.display="block";
+                document.getElementById('name_error').innerHTML = "Please Enter the Correct Otp";
+                document.getElementById('name_error').style.listStyle="initial";
+                document.getElementById('otp1').style.height = "30rem";
+            </script>
+    
+            {% endif%}
+    
+    
+    
+           </div>
+
+            <!-- </div> -->
+      <style>
+
+          #bnt:hover{
+              color: black ;
+            background-color: #e91818 !important;
+          }
+          #bnt1:hover{
+              color: black ;
+            background-color: #22b804 !important;
+          }
+         
+        </style>
+    {% if firstname1 %}
+     <style>
+     
+     #id_firstname{
+        border-bottom: 2px solid red;
+}
+
+     </style>
+
+    {% endif %}
+
+    {% if lastname1 %}
+    <style>
+    
+    #id_lastname{
+       border-bottom: 2px solid red;
+}
+
+    </style>
+
+   {% endif %}
+
+   {% if pnumber1 %}
+   <style>
+   
+   #id_Phonenumber{
+      border-bottom: 2px solid red;
+}
+
+   </style>
+
+  {% endif %}
+
+  {% if pnumber2 %}
+  <style>
+  
+  #id_Phonenumber2{
+     border-bottom: 2px solid red;
+}
+
+  </style>
+
+ {% endif %}
+
+ {% if email1 %}
+ <style>
+ 
+ #id_email{
+    border-bottom: 2px solid red;
+}
+
+ </style>
+
+{% endif %}
+
+{% if state1 %}
+<style>
+
+#id_state{
+   border-bottom: 2px solid red;
+}
+
+</style>
+
+{% endif %}
+
+{% if address11 %}
+<style>
+
+#id_address1{
+   border-bottom: 2px solid red;
+}
+
+</style>
+
+{% endif %}
+
+
+{% if address22 %}
+<style>
+
+#id_address12{
+   border-bottom: 2px solid red;
+}
+
+</style>
+
+{% endif %}
+
+{% if city1 %}
+<style>
+
+#id_city{
+   border-bottom: 2px solid red;
+}
+
+</style>
+
+{% endif %}
+
+{% if zipcode1 %}
+<style>
+
+#id_zipcode{
+   border-bottom: 2px solid red;
+}
+
+</style>
+
+{% endif %}
+</div>
+    <footer>
+        &copy;2019 All Rights Reserved By Ayan Shaikh 
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+ 
+
+</body>
+{% if status %}
+<script>
+//     $('html,body').animate({
+//    scrollTop: $("#profile").offset().top
+// });
+//     document.getElementById('profile').style.display="block";
+//     document.getElementById('profile1').style.display="none";
+
+</script>
+{% else %}
+<script>
+    //     $('html,body').animate({
+    //    scrollTop: $("#profile1").offset().top
+    // });
+    //     document.getElementById('profile1').style.display="block";
+    //     document.getElementById('profile').style.display="none";
+    
+    // </script>
+
+{% endif %}
+<script>
+
+
+// function show(){
+    
+//     $('html,body').animate({
+//    scrollTop: $("#profile1").offset().top
+// });
+//     document.getElementById('profile').style.display="none";
+//     document.getElementById('profile1').style.display="block";
+// }
+function back()
+{
+    document.getElementById('main1').style.opacity="1";
+    document.getElementById('pop1').style.display="none";
+}
+
+function pop(){
+    document.getElementById('main1').style.opacity="0.2";
+    document.getElementById('pop1').style.display="block";
+}
+
+</script>
+<script>
+function myfunction()
+{
+    document.getElementById('navs').style.right=0;
+  
+    document.getElementById('con1').style.opacity=0.3;
+    document.getElementById('con').style.opacity=0.3;
+
+}
+
+function myfunction1()
+{
+    document.getElementById('navs').style.right="-26rem";
+  
+    document.getElementById('con1').style.opacity=1;
+    document.getElementById('con').style.opacity=1;
+
+}
+
+// function active_plumber(){
+// //    document.getElementById('Plum').style.display="block";
+// //    document.getElementById('many-form').style.background="url('./photos/plumer.jpg')";
+//    document.getElementById('otp').style.display="none";
+//    document.getElementById('Plum').style.display="block";
+//    document.getElementById('actives').style.border="none";
+//    document.getElementById('actives').style.color="black";
+//    document.getElementById('plum').style.borderBottom="3px solid #eb648c";
+//    document.getElementById('plum').style.color="#eb648c";
+//    $('#actives').hover(function(){
+//        $('#actives').css("border-bottom","3px solid #eb648c");
+      
+//    },function(){
+//     $('#actives').css("border-bottom","none");
+//    });
+// }
+
+
+
+
+
+function active_elect(){
+//    document.getElementById('Plum').style.display="block";
+   document.getElementById('many-form').style.background="url('{% static 'plumber/builder.jpg' %}')";
+   document.getElementById('many-form').style.backgroundSize="cover";
+   document.getElementById('many-form').style.transition="all 650ms ease-in-out";
+   document.getElementById('otp').style.display="none";
+   document.getElementById('Plum').style.display="none";
+   document.getElementById('rep').style.display="none";
+   document.getElementById('Elec').style.display="block";
+   document.getElementById('Elec').style.transition="all 650ms ease-in-out";
+   document.getElementById('actives').style.color="black";
+   document.getElementById('actives').style.borderBottom="none";
+   document.getElementById('repair').style.borderBottom="none";
+   document.getElementById('plum').style.borderBottom="none";
+   document.getElementById('plum').style.color="black";
+   document.getElementById('repair').style.color="black";
+   document.getElementById('elect').style.borderBottom="3px solid #eb648c";
+   document.getElementById('elect').style.color="#eb648c";
+   $('#actives').hover(function(){
+       $('#actives').css("border-bottom","3px solid #eb648c");
+      
+   },function(){
+    $('#actives').css("border-bottom","none");
+   });
+   $('#plum').hover(function(){
+       $('#plum').css("border-bottom","3px solid #eb648c");
+      
+   },function(){
+    $('#plum').css("border-bottom","none");
+   });
+   $('#repair').hover(function(){
+       $('#repair').css("border-bottom","3px solid #eb648c");
+      
+   },function(){
+    $('#repair').css("border-bottom","none");
+   });
+   
+   $('#elect').hover(function(){
+       $('#elect').css("border-bottom","3px solid #eb648c");
+      
+   },function(){
+    $('#elect').css("border-bottom","3px solid #eb648c");
+   });
+   
+   document.getElementById('elect').style.borderBottom="3px solid #eb648c";
+   document.getElementById('elect').style.color="#eb648c";
+}
+
+// function active_repair(){
+//    document.getElementById('Plum').style.display="block";
+//    document.getElementById('many-form').style.background="url('./photos/plumer.jpg')";
+//    document.getElementById('otp').style.display="none";
+//    document.getElementById('Plum').style.display="none";
+//    document.getElementById('Elect').style.display="none";
+//    document.getElementById('Elect').style.display="block";
+//    document.getElementById('actives').style.color="black";
+//    document.getElementById('actives').style.borderBottom="none";
+//    document.getElementById('plum').style.color="black";
+//    document.getElementById('elect').style.color="black";
+//    document.getElementById('repair').style.borderBottom="3px solid #eb648c";
+//    document.getElementById('repair').style.color="#eb648c";
+//    $('#actives').hover(function(){
+//        $('#actives').css("border-bottom","3px solid #eb648c");
+      
+//    },function(){
+//     $('#actives').css("border-bottom","none");
+//    });
+//    $('#plum').hover(function(){
+//        $('#plum').css("border-bottom","3px solid #eb648c");
+      
+//    },function(){
+//     $('#plum').css("border-bottom","none");
+//    });
+//    $('#elect').hover(function(){
+//        $('#elect').css("border-bottom","3px solid #eb648c");
+      
+//    },function(){
+//     $('#elect').css("border-bottom","none");
+//    });
+// }
+
+
+function active_plumber(){
+//    document.getElementById('Plum').style.display="block";
+   document.getElementById('many-form').style.background="url('{% static 'plumber/plumer.jpg' %}')";
+   document.getElementById('many-form').style.backgroundSize="cover";
+   document.getElementById('many-form').style.transition="all 650ms ease-in-out";
+   document.getElementById('otp').style.display="none";
+   document.getElementById('Plum').style.display="block";
+   document.getElementById('Plum').style.transition="all 650ms ease-in-out";
+   document.getElementById('rep').style.display="none";
+   document.getElementById('Elec').style.display="none";
+   document.getElementById('actives').style.borderBottom="none";
+   document.getElementById('actives').style.color="black";
+   document.getElementById('repair').style.color="black";
+   document.getElementById('elect').style.color="black";
+   document.getElementById('plum').style.borderBottom="3px solid #eb648c";
+   document.getElementById('plum').style.color="#eb648c";
+   document.getElementById('elect').style.borderBottom="none";
+   document.getElementById('elect').color="black";
+   $('#actives').hover(function(){
+       $('#actives').css("border-bottom","3px solid #eb648c");
+      
+   },function(){
+    $('#actives').css("border-bottom","none");
+   });
+
+   $('#elect').hover(function(){
+       $('#elect').css("border-bottom","3px solid #eb648c");
+      
+   },function(){
+    $('#elect').css("border-bottom","none");
+   });
+   $('#repair').hover(function(){
+       $('#repair').css("border-bottom","3px solid #eb648c");
+      
+   },function(){
+    $('#repair').css("border-bottom","none");
+   });
+   $('#plum').hover(function(){
+       $('#plum').css("border-bottom","3px solid #eb648c");
+      
+   },function(){
+    $('#plum').css("border-bottom","3px solid #eb648c");
+   });
+   
+   $('#plum').css("border-bottom","3px solid #eb648c");
+//    $('#plum').css("color","#eb648c");
+}
+
+
+function active_repair(){
+//    document.getElementById('Plum').style.display="block";
+   document.getElementById('many-form').style.background="url('{% static 'plumber/mobiles.jpg' %}')";
+   document.getElementById('many-form').style.backgroundSize="cover";
+   document.getElementById('many-form').style.transition="all 650ms ease-in-out";
+   
+   document.getElementById('otp').style.display="none";
+   document.getElementById('rep').style.display="block";
+   document.getElementById('rep').style.transition="all 650ms ease-in-out";
+   document.getElementById('Plum').style.display="none";
+   document.getElementById('Elec').style.display="none";
+   document.getElementById('actives').style.border="none";
+   document.getElementById('elect').style.borderBottom="none";
+   document.getElementById('repair').style.borderBottom="none";
+   document.getElementById('plum').style.borderBottom="none";
+   document.getElementById('actives').style.color="black";
+   document.getElementById('elect').style.color="black";
+   document.getElementById('plum').style.color="black";
+   document.getElementById('repair').style.borderBottom="3px solid #eb648c";
+   document.getElementById('repair').style.color="#eb648c";
+   $('#actives').hover(function(){
+       $('#actives').css("border-bottom","3px solid #eb648c");
+      
+   },function(){
+    $('#actives').css("border-bottom","none");
+   });
+
+   
+   $('#elect').hover(function(){
+       $('#elect').css("border-bottom","3px solid #eb648c");
+      
+   },function(){
+    $('#elect').css("border-bottom","none");
+   });
+   $('#plum').hover(function(){
+       $('#plum').css("border-bottom","3px solid #eb648c");
+      
+   },function(){
+    $('#plum').css("border-bottom","none");
+   });
+  
+   $('#repair').hover(function(){
+       $('#repair').css("border-bottom","3px solid #eb648c");
+      
+   },function(){
+    $('#repair').css("border-bottom","3px solid #eb648c");
+   });
+   document.getElementById('repair').style.borderBottom="3px solid #eb648c";
+   document.getElementById('repair').style.color="#eb648c";
+}
+
+
+function active_earn(){
+//    document.getElementById('Plum').style.display="block";
+   document.getElementById('elect').style.borderBottom="initial";
+   document.getElementById('actives').style.borderBottom="initial";
+   document.getElementById('plum').style.borderBottom="initial";
+   document.getElementById('repair').style.borderBottom="initial";
+   document.getElementById('many-form').style.background="url('{% static 'plumber/home_plumber.jpg' %}')";
+   document.getElementById('many-form').style.backgroundSize="cover";
+   document.getElementById('many-form').style.transition="all 650ms ease-in-out";
+   document.getElementById('otp').style.display="block";
+   document.getElementById('otp').style.transition="all 650ms ease-in-out";
+   document.getElementById('rep').style.display="none";
+   document.getElementById('Plum').style.display="none";
+   document.getElementById('Elec').style.display="none";
+
+   document.getElementById('elect').style.borderBottom="none";
+   document.getElementById('plum').style.borderBottom="none";
+   document.getElementById('repair').style.borderBottom="none";
+   document.getElementById('elect').style.color="black";
+   document.getElementById('plum').style.color="black";
+   document.getElementById('repair').style.color="black";
+   document.getElementById('actives').style.borderBottom="3px solid #eb648c";
+   document.getElementById('actives').style.color="#eb648c";
+   $('#elect').hover(function(){
+       $('#elect').css("border-bottom","3px solid #eb648c");
+      
+   },function(){
+    $('#elect').css("border-bottom","none");
+   });
+   $('#plum').hover(function(){
+       $('#plum').css("border-bottom","3px solid #eb648c");
+      
+   },function(){
+    $('#plum').css("border-bottom","none");
+   });
+   $('#repair').hover(function(){
+       $('#repair').css("border-bottom","3px solid #eb648c");
+      
+   },function(){
+    $('#repair').css("border-bottom","none");
+   });
+   $('#actives').hover(function(){
+       $('#actives').css("border-bottom","3px solid #eb648c");
+      
+   },function(){
+    $('#actives').css("border-bottom","3px solid #eb648c");
+   });
+
+$('#actives').css(borderBottom="3px solid #eb648c");
+   $('#actives').css(color="#eb648c");
+
+
+
+
+
+//    $('#actives').hover(function(){
+//        $('#actives').css("border-bottom","3px solid #eb648c");
+      
+//    },function(){
+//     $('#actives').css("border-bottom","none");
+//    });
+}
+
+
+
+
+    
+    </script>
+
+    <script>
+ 
+ $("#plums").click(function() {
+    $('html,body').animate({
+   scrollTop: $("#many-form").offset().top
+ 
+});   
+$('#plum').css("borderBottom","3px solid #eb648c");
+$('#plum').css("color"," #eb648c");
+$('#many-form').css("background","url({% static 'plumber/plumer.jpg' %})");
+$('#many-form').css("background-size","cover");
+$('#elect').css("borderBottom","none");
+$('#elect').css("color","black");
+$('#actives').css("borderBottom","none");
+$('#actives').css("color","black");
+$('#repair').css("borderBottom","none");
+$('#repair').css("color","black");
+$('#otp').css("display","none");
+$('#Elect').css("display","none");
+$('#rep').css("display","none");
+$('#Plum').css("display","block");
+$('#actives').hover(function(){
+       $('#actives').css("border-bottom","3px solid #eb648c");
+      
+   },function(){
+    $('#actives').css("border-bottom","none");
+   });
+
+   $('#elect').hover(function(){
+       $('#elect').css("border-bottom","3px solid #eb648c");
+      
+   },function(){
+    $('#elect').css("border-bottom","none");
+   });
+   $('#repair').hover(function(){
+       $('#repair').css("border-bottom","3px solid #eb648c");
+      
+   },function(){
+    $('#repair').css("border-bottom","none");
+   });
+   $('#plum').hover(function(){
+       $('#plum').css("border-bottom","3px solid #eb648c");
+      
+   },function(){
+    $('#plum').css("border-bottom","3px solid #eb648c");
+   });
+});
+
+
+
+$("#reps").click(function() {
+    $('html,body').animate({
+   scrollTop: $("#many-form").offset().top
+});   
+
+$('#repair').css("borderBottom","3px solid #eb648c");
+$('#repair').css("color"," #eb648c");
+$('#many-form').css("background","url({% static 'plumber/mobiles.jpg' %})");
+$('#many-form').css("background-size","cover");
+$('#Elec').css("borderBottom","none");
+$('#elect').css("color","black");
+$('#actives').css("borderBottom","none");
+$('#actives').css("color","black");
+$('#plum').css("borderBottom","none");
+$('#plum').css("color","black");
+$('#otp').css("display","none");
+$('#Elec').css("display","none");
+$('#rep').css("display","none");
+$('#rep').css("display","block");
+$('#actives').hover(function(){
+       $('#actives').css("border-bottom","3px solid #eb648c");
+      
+   },function(){
+    $('#actives').css("border-bottom","none");
+   });
+
+   
+   $('#elect').hover(function(){
+       $('#elect').css("border-bottom","3px solid #eb648c");
+      
+   },function(){
+    $('#elect').css("border-bottom","none");
+   });
+   $('#plum').hover(function(){
+       $('#plum').css("border-bottom","3px solid #eb648c");
+      
+   },function(){
+    $('#plum').css("border-bottom","none");
+   });
+  
+   $('#repair').hover(function(){
+       $('#repair').css("border-bottom","3px solid #eb648c");
+      
+   },function(){
+    $('#repair').css("border-bottom","3px solid #eb648c");
+   });
+});
+
+
+$("#elects").click(function() {
+    $('html,body').animate({
+   scrollTop: $("#many-form").offset().top
+});   
+$('#elect').css("borderBottom","3px solid #eb648c");
+$('#elect').css("color"," #eb648c");
+$('#many-form').css("background","url({% static 'plumber/builder.jpg' %})");
+$('#many-form').css("background-size","cover");
+$('#repair').css("borderBottom","none");
+$('#repair').css("color","black");
+$('#actives').css("borderBottom","none");
+$('#actives').css("color","black");
+$('#plum').css("borderBottom","none");
+$('#plum').css("color","black");
+$('#otp').css("display","none");
+$('#rep').css("display","none");
+$('#Plum').css("display","none");
+$('#Elec').css("display","block");
+$('#actives').hover(function(){
+       $('#actives').css("border-bottom","3px solid #eb648c");
+      
+   },function(){
+    $('#actives').css("border-bottom","none");
+   });
+   $('#plum').hover(function(){
+       $('#plum').css("border-bottom","3px solid #eb648c");
+      
+   },function(){
+    $('#plum').css("border-bottom","none");
+   });
+   $('#repair').hover(function(){
+       $('#repair').css("border-bottom","3px solid #eb648c");
+      
+   },function(){
+    $('#repair').css("border-bottom","none");
+   });
+   
+   $('#elect').hover(function(){
+       $('#elect').css("border-bottom","3px solid #eb648c");
+      
+   },function(){
+    $('#elect').css("border-bottom","3px solid #eb648c");
+   });
+   
+});
+
+
+$("#earns").click(function() {
+    $('html,body').animate({
+   scrollTop: $("#many-form").offset().top
+});   
+$('#actives').css("borderBottom","3px solid #eb648c");
+$('#actives').css("color"," #eb648c");
+$('#many-form').css("background","url({% static 'plumber/home_plumber.jpg' %})");
+$('#many-form').css("background-size","cover");
+$('#repair').css("borderBottom","none");
+$('#repair').css("color","black");
+$('#elect').css("borderBottom","none");
+$('#elect').css("color","black");
+$('#plum').css("borderBottom","none");
+$('#plum').css("color","black");
+$('#Elec').css("display","none");
+$('#rep').css("display","none");
+$('#Plum').css("display","none");
+$('#otp').css("display","block");
+
+$('#elect').hover(function(){
+       $('#elect').css("border-bottom","3px solid #eb648c");
+      
+   },function(){
+    $('#elect').css("border-bottom","none");
+   });
+   $('#plum').hover(function(){
+       $('#plum').css("border-bottom","3px solid #eb648c");
+      
+   },function(){
+    $('#plum').css("border-bottom","none");
+   });
+   $('#repair').hover(function(){
+       $('#repair').css("border-bottom","3px solid #eb648c");
+      
+   },function(){
+    $('#repair').css("border-bottom","none");
+   });
+   $('#actives').hover(function(){
+       $('#actives').css("border-bottom","3px solid #eb648c");
+      
+   },function(){
+    $('#actives').css("border-bottom","3px solid #eb648c");
+   });
+});
+    </script>
+
+
+
+
+<script>
+ 
+        $("#plums1").click(function() {
+           $('html,body').animate({
+          scrollTop: $("#many-form").offset().top
+        
+       });   
+       $('#plum').css("borderBottom","3px solid #eb648c");
+       $('#plum').css("color"," #eb648c");
+       $('#many-form').css("background","url({% static 'plumber/plumer.jpg' %})");
+       $('#many-form').css("background-size","cover");
+       $('#elect').css("borderBottom","none");
+       $('#elect').css("color","black");
+       $('#actives').css("borderBottom","none");
+       $('#actives').css("color","black");
+       $('#repair').css("borderBottom","none");
+       $('#repair').css("color","black");
+       $('#otp').css("display","none");
+       $('#Elect').css("display","none");
+       $('#rep').css("display","none");
+       $('#Plum').css("display","block");
+       $('#actives').hover(function(){
+              $('#actives').css("border-bottom","3px solid #eb648c");
+             
+          },function(){
+           $('#actives').css("border-bottom","none");
+          });
+       
+          $('#elect').hover(function(){
+              $('#elect').css("border-bottom","3px solid #eb648c");
+             
+          },function(){
+           $('#elect').css("border-bottom","none");
+          });
+          $('#repair').hover(function(){
+              $('#repair').css("border-bottom","3px solid #eb648c");
+             
+          },function(){
+           $('#repair').css("border-bottom","none");
+          });
+          $('#plum').hover(function(){
+              $('#plum').css("border-bottom","3px solid #eb648c");
+             
+          },function(){
+           $('#plum').css("border-bottom","3px solid #eb648c");
+          });
+       });
+       
+       
+       
+       $("#reps1").click(function() {
+           $('html,body').animate({
+          scrollTop: $("#many-form").offset().top
+       });   
+       
+       $('#repair').css("borderBottom","3px solid #eb648c");
+       $('#repair').css("color"," #eb648c");
+       $('#many-form').css("background","url({% static 'plumber/mobiles.jpg' %})");
+       $('#many-form').css("background-size","cover");
+       $('#Elec').css("borderBottom","none");
+       $('#elect').css("color","black");
+       $('#actives').css("borderBottom","none");
+       $('#actives').css("color","black");
+       $('#plum').css("borderBottom","none");
+       $('#plum').css("color","black");
+       $('#otp').css("display","none");
+       $('#Elec').css("display","none");
+       $('#rep').css("display","none");
+       $('#rep').css("display","block");
+       $('#actives').hover(function(){
+              $('#actives').css("border-bottom","3px solid #eb648c");
+             
+          },function(){
+           $('#actives').css("border-bottom","none");
+          });
+       
+          
+          $('#elect').hover(function(){
+              $('#elect').css("border-bottom","3px solid #eb648c");
+             
+          },function(){
+           $('#elect').css("border-bottom","none");
+          });
+          $('#plum').hover(function(){
+              $('#plum').css("border-bottom","3px solid #eb648c");
+             
+          },function(){
+           $('#plum').css("border-bottom","none");
+          });
+         
+          $('#repair').hover(function(){
+              $('#repair').css("border-bottom","3px solid #eb648c");
+             
+          },function(){
+           $('#repair').css("border-bottom","3px solid #eb648c");
+          });
+       });
+       
+       
+       $("#elects1").click(function() {
+           $('html,body').animate({
+          scrollTop: $("#many-form").offset().top
+       });   
+       $('#elect').css("borderBottom","3px solid #eb648c");
+       $('#elect').css("color"," #eb648c");
+       $('#many-form').css("background","url({% static 'plumber/builder.jpg' %})");
+       $('#many-form').css("background-size","cover");
+       $('#repair').css("borderBottom","none");
+       $('#repair').css("color","black");
+       $('#actives').css("borderBottom","none");
+       $('#actives').css("color","black");
+       $('#plum').css("borderBottom","none");
+       $('#plum').css("color","black");
+       $('#otp').css("display","none");
+       $('#rep').css("display","none");
+       $('#Plum').css("display","none");
+       $('#Elec').css("display","block");
+       $('#actives').hover(function(){
+              $('#actives').css("border-bottom","3px solid #eb648c");
+             
+          },function(){
+           $('#actives').css("border-bottom","none");
+          });
+          $('#plum').hover(function(){
+              $('#plum').css("border-bottom","3px solid #eb648c");
+             
+          },function(){
+           $('#plum').css("border-bottom","none");
+          });
+          $('#repair').hover(function(){
+              $('#repair').css("border-bottom","3px solid #eb648c");
+             
+          },function(){
+           $('#repair').css("border-bottom","none");
+          });
+          
+          $('#elect').hover(function(){
+              $('#elect').css("border-bottom","3px solid #eb648c");
+             
+          },function(){
+           $('#elect').css("border-bottom","3px solid #eb648c");
+          });
+          
+       });
+       
+       
+       $("#earns1").click(function() {
+           $('html,body').animate({
+          scrollTop: $("#many-form").offset().top
+       });   
+       $('#actives').css("borderBottom","3px solid #eb648c");
+       $('#actives').css("color"," #eb648c");
+       $('#many-form').css("background","url({% static 'plumber/home_plumber.jpg' %})");
+       $('#many-form').css("background-size","cover");
+       $('#repair').css("borderBottom","none");
+       $('#repair').css("color","black");
+       $('#elect').css("borderBottom","none");
+       $('#elect').css("color","black");
+       $('#plum').css("borderBottom","none");
+       $('#plum').css("color","black");
+       $('#Elec').css("display","none");
+       $('#rep').css("display","none");
+       $('#Plum').css("display","none");
+       $('#otp').css("display","block");
+       
+       $('#elect').hover(function(){
+              $('#elect').css("border-bottom","3px solid #eb648c");
+             
+          },function(){
+           $('#elect').css("border-bottom","none");
+          });
+          $('#plum').hover(function(){
+              $('#plum').css("border-bottom","3px solid #eb648c");
+             
+          },function(){
+           $('#plum').css("border-bottom","none");
+          });
+          $('#repair').hover(function(){
+              $('#repair').css("border-bottom","3px solid #eb648c");
+             
+          },function(){
+           $('#repair').css("border-bottom","none");
+          });
+          $('#actives').hover(function(){
+              $('#actives').css("border-bottom","3px solid #eb648c");
+             
+          },function(){
+           $('#actives').css("border-bottom","3px solid #eb648c");
+          });
+       });
+           </script>
+    <!-- <script>
+        function pop_after(){
+      setTimeout(function(){
+        document.getElementById("container").style.opacity=0.3;
+        //document.getElementById("container1").style.display="block";
+          $('#container1').show();
+      },5000);
+    }
+      function pop()
+      {
+        $('#container1').show();
+        document.getElementById("container").style.opacity=0.3;
+  
+      }
+      
+      </script> -->
+</html>

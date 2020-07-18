@@ -1,0 +1,1174 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+ 
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Bitter|Fjalla+One|Modak|Saira+Stencil+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'plumber/home.css' %}">
+    <script src="https://kit.fontawesome.com/784b66feb8.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <!-- Bootstrap core CSS -->
+    
+    <!-- font-family: c
+font-family: 'Fjalla One', sans-serif;
+font-family: 'Bitter', serif;
+font-family: 'Saira Stencil One', cursive; -->
+</head>
+
+<body style="background-color: #eb648c;">
+    <!-- Button trigger modal-->
+<!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalConfirmDelete">Launch
+        modal</button> -->
+      
+      <!--Modal: modalConfirmDelete-->
+   
+      <!--Modal: modalConfirmDelete-->
+    <header>
+    <div class="container" id="head">
+        <nav>
+            <div class="brand" >
+            <a href="#" style="color: white;font-size:3rem;text-decoration: none;">
+                Ayan
+            </a>
+        </div>
+        <div class="menu">
+                <!-- <i class="fas fa-bars" onclick="myfunction()"></i> -->
+                <ul class="nav-list" id="navs">
+                
+               
+                    <li class="nav-items">
+                        <a href="{% url 'profile' username %}" class="nav-link" style="color: #fafafa;"><i class="fas fa-user" style="cursor: pointer;"></i></a> 
+                </li>
+                <li class="nav-items">
+                    <a href="{% url 'hires' username %}" class="nav-link" style="color: #fafafa;"><i class="fas fa-bell" style="cursor: pointer;"></i></a> 
+            </li>
+                <li class="nav-items">
+                    <a href="{% url 'orders' username %}" class="nav-link" style="color: #fafafa;"><i class="fas fa-shopping-cart" style="cursor: pointer;"></i></a> 
+            </li>
+                    <!-- <li class="nav-items">
+                        <a href="#" class="nav-link" id="logout" onclick="pop()" style="color: #fafafa;"><i class="fas fa-sign-out-alt" style="cursor: pointer;"></i></a>
+                
+                    </li> -->
+                    <li class="nav-items">
+                            <a href="#" data-toggle="modal" data-target="#exampleModal" style="color: #fafafa;"><i class="fas fa-sign-out-alt" style="cursor: pointer;"></i></a>
+                    
+                        </li>
+                    
+                    </ul>
+        </div>
+    
+        </nav>
+    </div>
+
+    </header>
+  <br>
+    <br>
+    <div style="font-size: 1rem;font-weight:bold;width:35rem;margin:1rem auto;">
+            {% if messages %}
+                {% for message in messages %}
+                <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                    <strong> {{ message }}</strong>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close" style="float: right;">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+               
+                
+             
+                {% endfor %}
+        
+            {% endif %}
+        </div>
+    
+  <main id="main1">
+    <section class="hero">
+
+
+
+
+
+<div class="bd-example">
+        <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+          <!-- <ol class="carousel-indicators">
+            <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
+            <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+            <li data-target="#carouselExampleCaptions" data-slide-to="3"></li>
+          </ol> -->
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+                    <div class="container" id="con">
+                            <div class="main-message">
+                             
+                                <img src="{% static 'plumber/ma2.png' %}">
+                              
+                            </div>
+                            <div class = "hire ">
+                                <h1>Hire Plumbers</h1>
+                                <p>
+                                  Hire plumber for houehold Works.
+                                  Our Workers aRE very highly skillfull and have lots of Experience.
+                                </p>
+                              <button type="button"  class="btn btn-success" id="plums" style="font-weight: bold;font-size:1.5rem;">HIRE PLUMERBS </button>
+                            </div>
+                        </div>
+            </div>
+            
+            <div class="carousel-item">
+                    <div class="container" id="con">
+                            <div class="main-message">
+                             
+                                <img src="{% static 'plumber/ma3.png' %}">
+                              
+                            </div>
+                            <div class = "hire">
+                                <h1>Hire Electricians</h1>
+                                <p>
+                                 Hire Electricians for Your HOUsehold Works.
+                                Electricians Who have lots of Experience and a great skills.
+                                </p>
+                               <button type="button" class="btn btn-success" id="elects" style="font-weight: bold;font-size:1.5rem;">HIRE Electricians </button>></a>
+                            </div>
+                        </div>
+            </div>
+            <div class="carousel-item">
+                    <div class="container" id="con">
+                            <div class="main-message">
+                             
+                                <img src="{% static 'plumber/ma4.png' %}">
+                              
+                            </div>
+                            <div class = "hire">
+                                <h1>Hire Repairer</h1>
+                                <p>
+                                 Hire Repairers  for Your HOUsehold Works.
+                                Repairers Who have lots of Experience in their niches
+                                </p>
+                                <button type="button" class="btn btn-success" id="reps" style="font-weight: bold;font-size:1.5rem;">HIRE Repairers</button>
+                            </div>
+                        </div>
+            </div>
+            <div class="carousel-item">
+                    <div class="container" id="con">
+                            <div class="main-message">
+                             
+                                <img src="{% static 'plumber/ma5.png' %}">
+                              
+                            </div>
+                            <div class = "hire">
+                                <h1>Earn</h1>
+                                <p>
+                                 Show Your Skills and Earn.
+                                  Showcase Your Work And get  an oppourtunity for Earning Money.
+                                </p>
+                               <button type="button" class="btn btn-success " id="earns" style="font-weight: bold;font-size:1.5rem;">Earn </button>
+                            </div>
+                        </div>
+            </div>
+          </div>
+          <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
+        </div>
+      </div>
+
+
+    </section >
+<section class="many-forms" id="many-form" style="padding: 1rem;">
+    <div class="off-navbar">
+       <ul class="of-nav">
+         <li class="off-items" id="actives" onclick="active_earn()" style="padding-top: 1rem 0 0;" >Earn<br><i class="fas fa-rupee-sign"></i></li>
+         <li class="off-items" id="plum" onclick="active_plumber()" style="color: black;padding: 1rem 0 0;" >Plumbers<br><i class="fas fa-pencil-ruler"></i></li>
+         <li class="off-items" id="elect" onclick="active_elect()" style="color: black;">Electricians<br><i class="far fa-lightbulb"></i></li>
+         <li class="off-items" id="repair" onclick="active_repair()" style="color: black;">Repairer<br><i class="fas fa-tools"></i></li>
+       </ul>
+
+    </div>
+    <br>
+    <div class="otp" id="otp" style="text-align: center;">
+        <h1>Earn</h1>
+     
+            <form class="form1"    id="form"  method="POST"  style="margin: 10px 30px 30px ;">
+                    {% csrf_token %}
+                <div id="subform">  
+               
+              <select name="cars" class="work" value="Work" style="outline: none;background:white;">
+                    <option value="" selected="selected" hidden="hidden" id="rare">What Work Would You like do</option>
+                <option value="volvo">Plumber</option>
+                <option value="saab">Electricians</option>
+                <option value="fiat">Repairer</option>
+
+              </select>
+         
+            <br>
+          
+      <br>
+                  <button class="next" style="text-transform: uppercase;font-size: 2rem;border-radius: 2rem;border: 2px solid #eb648c">Next </button>
+                  <!-- <input type="button"  name="Confirm" value="Next" class="next"> -->
+                  <h3 id="mes"></h3>
+                  <br></div>
+              </form>
+        
+        </div>
+   
+        <div class="otp" id="Plum" style="text-align: center;display: none;">
+            <h1>Hire Plumber</h1>
+                
+                <!-- <form class="form"   id="form"  method="POST" style="margin: 10px 30px 30px ;">
+                        {% csrf_token %} -->
+                    <div id="subform">  
+              
+                         
+           
+                      <a href="{% url 'hire-plumber' username %}" style="text-decoration: none;" ><button class="next" id="plum_button" style="border: 2px solid #eb648c;text-transform: uppercase;font-size: 2rem;font-weight:bold;border-radius: 2rem;">Hire</button></a>
+                   
+                      <h3 id="mes"></h3>
+                      <br></div>
+                  <!-- </form> -->
+            
+            </div>
+  
+            <div class="otp" id="Elec" style="text-align: center;display: none;">
+                <h1>Hire Electricians</h1>
+                    
+                    <!-- <form class="form"   id="form"  method="POST"   style="margin: 10px 30px 30px ;">
+                            {% csrf_token %} -->
+                        <div id="subform">  
+                        
+                          <a href = "{% url 'hire-electricians' username %}" style="text-decoration: none;"><button class="next" id="elect_button"  style="border: 2px solid #eb648c;text-transform: uppercase;font-size: 2rem;font-weight:bold;border-radius: 2rem;">Hire</button></a>
+                          <!-- <input type="button"  name="Confirm" value="Next" class="next"> -->
+                          <h3 id="mes"></h3>
+                          <br>
+                        </div>
+                      <!-- </form> -->
+                
+                </div>
+            
+                <div class="otp" id="rep" style="text-align: center;display: none;">
+                        <h1>Hire Repairer</h1>
+                            
+                            <form class="form"    id="form"  method="POST"  style="margin: 10px 30px 30px ;">
+                                    {% csrf_token %}
+
+                                {% for field in form %}
+                                   {{ field }}
+                                {% endfor %}
+                                <!-- <div id="subform">  
+                           
+              
+                              <select name="cars" class="work" value="Work" style="outline: none;background: white;">
+                                    <option value="" selected="selected" hidden="hidden" id="rare" style="outline: none;">Which Think you want to repair?</option>
+                                <option value="volvo" style="outline: none;" id="TV">TV</option>
+                                <option value="saab" style="outline: none;" id="motor">Motor</option>
+                                <option value="fiat" style="outline: none;" id="washing">Washing Machine</option>
+                
+                              </select>
+                              <br>
+                   
+                              <label for="validationCustom01"></label>
+                              <br><input type="text" class="form-control" id="name" name="Last Name" placeholder="  Last Name" required style="border: 0px;border-bottom:3px solid #eb648c;outline: none;display: none;">
+                          
+                         -->
+                                 <button class="next" id="repaire1" style="text-transform: uppercase;font-size: 2rem;font-weight:bold;border-radius: 2rem;border: 2px solid #eb648c">Hire<button>
+                                  <!-- <input type="button"  name="Confirm" value="Next" class="next"> -->
+                       
+                                  <br></div>
+                              </form>
+                        
+                        </div>
+                        <br>
+
+        
+</section>
+    <section>
+        <div class="containers" id="con1">
+          <div class="title">
+              <h3 style="color: #fafafa;">Why you should hire Us?</h3>
+          
+              <p style="color: #fafafa;">
+                  By Hiring us you will get an great experience by the brilliant and skillfull Workers.
+                  Our Workers Who have lots of Experience in their niches and you can be totally relaible them.
+              </p>
+              
+          </div>
+    
+          <div class="activity">
+           
+                        <div class="activity1" style="text-align: center;">
+                        <i class="fas fa-rupee-sign"></i>
+                      <h3>Earn</h3>
+                      <h2>Show Your Skills and Earn</h2>
+                      <p>
+                            Showcase Your Work And get  an oppourtunity for Earning Money.
+                                             
+                          </p>
+                          <button type="button" class="btn btn-success" id="earns1">Apply Now</button>
+                  </div>
+               
+
+
+              <div class="activity1" style="text-align: center;">
+            <i class="fas fa-pencil-ruler"></i>
+            <h3>Plumbers</h3>
+            <h2>Hire Now</h2>
+            <p>
+                    Hire Plumbers for Your HOUsehold Works.
+                    Plumbers Who have lots of Experience in their niches
+                </p>
+                <button type="button" class="btn btn-success" id="plums1">HIRE PLUMERBS </button>
+        </div>
+        <div class="activity1" style="text-align: center;">
+                <i class="far fa-lightbulb"></i>
+                <h3>Electricians</h3>
+                <h2>Hire Now</h2>
+                <p>
+                        Hire Electricians for Your HOUsehold Works.
+                        Electricians Who have lots of Experience and a great skills.
+                    </p>
+
+                  <button type="button" class="btn btn-success" id="elects1">HIRE ELECTRICIANS</button>
+            </div>
+            <div class="activity1" style="text-align: center;">
+                    <i class="fas fa-tools"></i>
+                    <h3>Repairer</h3>
+                    <h2>Hire Now</h2>
+                    <p>
+                            Hire Repairers  for Your HOUsehold Works.
+                            Repairers Who have lots of Experience in their niches
+                        </p>
+                        <button type="button" class="btn btn-success" id="reps1">HIRE REPAIRER</button>
+                </div>
+                
+          </div>
+        </div>
+    
+    
+        </section>
+    
+    
+        <section>
+    <div class="contanierd">
+    
+        <div class="titles" style="padding: 2rem;color: #fafafa;">
+            <h3>Our Clients</h3>
+            <h1>What Our Customers Say</h1>
+            <p>great facilites, provided by ayan and company. Workers are very skillful and shows their politeness</p>
+        </div>
+        <div class="quote" >
+                <i class="fas fa-quote-left"></i>
+              
+        </div>
+        <div class="exps" style="text-align: center;">
+        <div class="exper">
+                <h3>Arshin Shaikh</h3>
+                <img src="{% static 'plumber/arshin.jpg' %}">
+                <p>Great Facilites, Provided by Ayan and company. Workers were very skillful and showed their great nature</p>
+          
+    
+        </div>
+        <div class="exper">
+                <h3>Shahvaz Alam</h3>
+                <img src="{% static 'plumber/alam.jpg' %}">
+                <p>Great Facilites, Provided by Ayan and company. Workers were very skillful and showed their great nature</p>
+                
+          
+              </div>
+              <div class="exper">
+                    <h3>Nayab Shaikh</h3>
+                    <img src="{% static 'plumber/nayab.jpg' %}">
+                    <p>Great Facilites, Provided by Ayan and company. Workers were very skillful and showed their great nature</p>
+                    
+              
+                  </div>
+                  </div>
+                  <div class="quote" >
+                       
+                        <i class="fas fa-quote-right"></i>
+                </div>
+                 
+    </div>
+    
+        </section>
+</main>
+
+
+    <footer>
+        &copy;2019 All Rights Reserved By Ayan Shaikh 
+    </footer>
+
+      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document" style="width: 35rem;">
+          <div class="modal-content">
+            <div class="modal-header" style="background-color: #eb648c; color: white;height:5rem;margin-bottom: 2rem;text-align: center;margin-left: -0.1rem;">
+     <h3 class="modal-title" id="exampleModalLabel" style="text-align: center;position: initial;text-align: center">Are You Sure ?</h3>
+      
+            </div>
+            <div class="modal-body" style="text-align: center;">
+                    <i class="fas fa-times fa-4x animated rotateIn" style="color: red;"></i>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class=" btn-success" data-dismiss="modal" style="font-size: 1.5rem;font-weight:bold;padding:1rem;background-color: #eb648c; border:2px solid #fafafa  !important;">Close</button>
+              <a href ="{% url 'logout' %}" style="text-decoration: none;"><button type="button" class=" btn-danger" style="font-size: 1.5rem;padding:1rem;font-weight:bold;background-color: #ff9900;border: 2px solid white !important;">Yes, Sure</button></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+ 
+   
+</body>
+<script>
+// document.cookie = "product=electrician";
+</script>
+<script>
+
+$(document).on('click','#plum_button',function(){
+    document.cookie = "product=plumber";
+
+});
+
+$(document).on('click','#elect_button',function(){
+    document.cookie = "product=electrician";
+});
+
+
+
+
+    </script>
+
+<script>
+ 
+
+
+
+ function logout()
+ {
+    document.getElementById
+ }
+
+
+function back()
+{
+    document.getElementById('main1').style.opacity="1";
+    document.getElementById('pop1').style.display="none";
+}
+
+function pop(){
+    document.getElementById('main1').style.opacity="0.2";
+    document.getElementById('pop1').style.display="block";
+}
+
+</script>
+<script>
+function myfunction()
+{
+    document.getElementById('navs').style.right=0;
+  
+    document.getElementById('con1').style.opacity=0.3;
+    document.getElementById('con').style.opacity=0.3;
+
+}
+
+function myfunction1()
+{
+    document.getElementById('navs').style.right="-26rem";
+  
+    document.getElementById('con1').style.opacity=1;
+    document.getElementById('con').style.opacity=1;
+
+}
+
+// function active_plumber(){
+// //    document.getElementById('Plum').style.display="block";
+// //    document.getElementById('many-form').style.background="url('./photos/plumer.jpg')";
+//    document.getElementById('otp').style.display="none";
+//    document.getElementById('Plum').style.display="block";
+//    document.getElementById('actives').style.border="none";
+//    document.getElementById('actives').style.color="black";
+//    document.getElementById('plum').style.borderBottom="3px solid #eb648c";
+//    document.getElementById('plum').style.color="#eb648c";
+//    $('#actives').hover(function(){
+//        $('#actives').css("border-bottom","3px solid #eb648c");
+      
+//    },function(){
+//     $('#actives').css("border-bottom","none");
+//    });
+// }
+
+
+
+
+
+function active_elect(){
+//    document.getElementById('Plum').style.display="block";
+   document.getElementById('many-form').style.background="url('{% static 'plumber/builder.jpg' %}')";
+   document.getElementById('many-form').style.backgroundSize="cover";
+   document.getElementById('many-form').style.transition="all 650ms ease-in-out";
+   document.getElementById('otp').style.display="none";
+   document.getElementById('Plum').style.display="none";
+   document.getElementById('rep').style.display="none";
+   document.getElementById('Elec').style.display="block";
+   document.getElementById('Elec').style.transition="all 650ms ease-in-out";
+   document.getElementById('actives').style.color="black";
+   document.getElementById('actives').style.borderBottom="none";
+   document.getElementById('repair').style.borderBottom="none";
+   document.getElementById('plum').style.borderBottom="none";
+   document.getElementById('plum').style.color="black";
+   document.getElementById('repair').style.color="black";
+   document.getElementById('elect').style.borderBottom="3px solid #eb648c";
+   document.getElementById('elect').style.color="#eb648c";
+   $('#actives').hover(function(){
+       $('#actives').css("border-bottom","3px solid #eb648c");
+      
+   },function(){
+    $('#actives').css("border-bottom","none");
+   });
+   $('#plum').hover(function(){
+       $('#plum').css("border-bottom","3px solid #eb648c");
+      
+   },function(){
+    $('#plum').css("border-bottom","none");
+   });
+   $('#repair').hover(function(){
+       $('#repair').css("border-bottom","3px solid #eb648c");
+      
+   },function(){
+    $('#repair').css("border-bottom","none");
+   });
+   
+   $('#elect').hover(function(){
+       $('#elect').css("border-bottom","3px solid #eb648c");
+      
+   },function(){
+    $('#elect').css("border-bottom","3px solid #eb648c");
+   });
+   
+   document.getElementById('elect').style.borderBottom="3px solid #eb648c";
+   document.getElementById('elect').style.color="#eb648c";
+}
+
+// function active_repair(){
+//    document.getElementById('Plum').style.display="block";
+//    document.getElementById('many-form').style.background="url('./photos/plumer.jpg')";
+//    document.getElementById('otp').style.display="none";
+//    document.getElementById('Plum').style.display="none";
+//    document.getElementById('Elect').style.display="none";
+//    document.getElementById('Elect').style.display="block";
+//    document.getElementById('actives').style.color="black";
+//    document.getElementById('actives').style.borderBottom="none";
+//    document.getElementById('plum').style.color="black";
+//    document.getElementById('elect').style.color="black";
+//    document.getElementById('repair').style.borderBottom="3px solid #eb648c";
+//    document.getElementById('repair').style.color="#eb648c";
+//    $('#actives').hover(function(){
+//        $('#actives').css("border-bottom","3px solid #eb648c");
+      
+//    },function(){
+//     $('#actives').css("border-bottom","none");
+//    });
+//    $('#plum').hover(function(){
+//        $('#plum').css("border-bottom","3px solid #eb648c");
+      
+//    },function(){
+//     $('#plum').css("border-bottom","none");
+//    });
+//    $('#elect').hover(function(){
+//        $('#elect').css("border-bottom","3px solid #eb648c");
+      
+//    },function(){
+//     $('#elect').css("border-bottom","none");
+//    });
+// }
+
+
+function active_plumber(){
+//    document.getElementById('Plum').style.display="block";
+   document.getElementById('many-form').style.background="url('{% static 'plumber/plumer.jpg' %}')";
+   document.getElementById('many-form').style.backgroundSize="cover";
+   document.getElementById('many-form').style.transition="all 650ms ease-in-out";
+   document.getElementById('otp').style.display="none";
+   document.getElementById('Plum').style.display="block";
+   document.getElementById('Plum').style.transition="all 650ms ease-in-out";
+   document.getElementById('rep').style.display="none";
+   document.getElementById('Elec').style.display="none";
+   document.getElementById('actives').style.borderBottom="none";
+   document.getElementById('actives').style.color="black";
+   document.getElementById('repair').style.color="black";
+   document.getElementById('elect').style.color="black";
+   document.getElementById('plum').style.borderBottom="3px solid #eb648c";
+   document.getElementById('plum').style.color="#eb648c";
+   document.getElementById('elect').style.borderBottom="none";
+   document.getElementById('elect').color="black";
+   $('#actives').hover(function(){
+       $('#actives').css("border-bottom","3px solid #eb648c");
+      
+   },function(){
+    $('#actives').css("border-bottom","none");
+   });
+
+   $('#elect').hover(function(){
+       $('#elect').css("border-bottom","3px solid #eb648c");
+      
+   },function(){
+    $('#elect').css("border-bottom","none");
+   });
+   $('#repair').hover(function(){
+       $('#repair').css("border-bottom","3px solid #eb648c");
+      
+   },function(){
+    $('#repair').css("border-bottom","none");
+   });
+   $('#plum').hover(function(){
+       $('#plum').css("border-bottom","3px solid #eb648c");
+      
+   },function(){
+    $('#plum').css("border-bottom","3px solid #eb648c");
+   });
+   
+   $('#plum').css("border-bottom","3px solid #eb648c");
+//    $('#plum').css("color","#eb648c");
+}
+
+
+function active_repair(){
+//    document.getElementById('Plum').style.display="block";
+   document.getElementById('many-form').style.background="url('{% static 'plumber/mobiles.jpg' %}')";
+   document.getElementById('many-form').style.backgroundSize="cover";
+   document.getElementById('many-form').style.transition="all 650ms ease-in-out";
+   
+   document.getElementById('otp').style.display="none";
+   document.getElementById('rep').style.display="block";
+   document.getElementById('rep').style.transition="all 650ms ease-in-out";
+   document.getElementById('Plum').style.display="none";
+   document.getElementById('Elec').style.display="none";
+   document.getElementById('actives').style.border="none";
+   document.getElementById('elect').style.borderBottom="none";
+   document.getElementById('repair').style.borderBottom="none";
+   document.getElementById('plum').style.borderBottom="none";
+   document.getElementById('actives').style.color="black";
+   document.getElementById('elect').style.color="black";
+   document.getElementById('plum').style.color="black";
+   document.getElementById('repair').style.borderBottom="3px solid #eb648c";
+   document.getElementById('repair').style.color="#eb648c";
+   $('#actives').hover(function(){
+       $('#actives').css("border-bottom","3px solid #eb648c");
+      
+   },function(){
+    $('#actives').css("border-bottom","none");
+   });
+
+   
+   $('#elect').hover(function(){
+       $('#elect').css("border-bottom","3px solid #eb648c");
+      
+   },function(){
+    $('#elect').css("border-bottom","none");
+   });
+   $('#plum').hover(function(){
+       $('#plum').css("border-bottom","3px solid #eb648c");
+      
+   },function(){
+    $('#plum').css("border-bottom","none");
+   });
+  
+   $('#repair').hover(function(){
+       $('#repair').css("border-bottom","3px solid #eb648c");
+      
+   },function(){
+    $('#repair').css("border-bottom","3px solid #eb648c");
+   });
+   document.getElementById('repair').style.borderBottom="3px solid #eb648c";
+   document.getElementById('repair').style.color="#eb648c";
+}
+
+
+function active_earn(){
+//    document.getElementById('Plum').style.display="block";
+   document.getElementById('elect').style.borderBottom="initial";
+   document.getElementById('actives').style.borderBottom="initial";
+   document.getElementById('plum').style.borderBottom="initial";
+   document.getElementById('repair').style.borderBottom="initial";
+   document.getElementById('many-form').style.background="url('{% static 'plumber/home_plumber.jpg' %}')";
+   document.getElementById('many-form').style.backgroundSize="cover";
+   document.getElementById('many-form').style.transition="all 650ms ease-in-out";
+   document.getElementById('otp').style.display="block";
+   document.getElementById('otp').style.transition="all 650ms ease-in-out";
+   document.getElementById('rep').style.display="none";
+   document.getElementById('Plum').style.display="none";
+   document.getElementById('Elec').style.display="none";
+
+   document.getElementById('elect').style.borderBottom="none";
+   document.getElementById('plum').style.borderBottom="none";
+   document.getElementById('repair').style.borderBottom="none";
+   document.getElementById('elect').style.color="black";
+   document.getElementById('plum').style.color="black";
+   document.getElementById('repair').style.color="black";
+   document.getElementById('actives').style.borderBottom="3px solid #eb648c";
+   document.getElementById('actives').style.color="#eb648c";
+   $('#elect').hover(function(){
+       $('#elect').css("border-bottom","3px solid #eb648c");
+      
+   },function(){
+    $('#elect').css("border-bottom","none");
+   });
+   $('#plum').hover(function(){
+       $('#plum').css("border-bottom","3px solid #eb648c");
+      
+   },function(){
+    $('#plum').css("border-bottom","none");
+   });
+   $('#repair').hover(function(){
+       $('#repair').css("border-bottom","3px solid #eb648c");
+      
+   },function(){
+    $('#repair').css("border-bottom","none");
+   });
+   $('#actives').hover(function(){
+       $('#actives').css("border-bottom","3px solid #eb648c");
+      
+   },function(){
+    $('#actives').css("border-bottom","3px solid #eb648c");
+   });
+
+$('#actives').css(borderBottom="3px solid #eb648c");
+   $('#actives').css(color="#eb648c");
+
+
+
+
+
+//    $('#actives').hover(function(){
+//        $('#actives').css("border-bottom","3px solid #eb648c");
+      
+//    },function(){
+//     $('#actives').css("border-bottom","none");
+//    });
+}
+
+
+
+
+    
+    </script>
+
+    <script>
+ 
+ $("#plums").click(function() {
+    $('html,body').animate({
+   scrollTop: $("#many-form").offset().top
+ 
+});   
+$('#plum').css("borderBottom","3px solid #eb648c");
+$('#plum').css("color"," #eb648c");
+$('#many-form').css("background","url({% static 'plumber/plumer.jpg' %})");
+$('#many-form').css("background-size","cover");
+$('#elect').css("borderBottom","none");
+$('#elect').css("color","black");
+$('#actives').css("borderBottom","none");
+$('#actives').css("color","black");
+$('#repair').css("borderBottom","none");
+$('#repair').css("color","black");
+$('#otp').css("display","none");
+$('#Elect').css("display","none");
+$('#rep').css("display","none");
+$('#Plum').css("display","block");
+$('#actives').hover(function(){
+       $('#actives').css("border-bottom","3px solid #eb648c");
+      
+   },function(){
+    $('#actives').css("border-bottom","none");
+   });
+
+   $('#elect').hover(function(){
+       $('#elect').css("border-bottom","3px solid #eb648c");
+      
+   },function(){
+    $('#elect').css("border-bottom","none");
+   });
+   $('#repair').hover(function(){
+       $('#repair').css("border-bottom","3px solid #eb648c");
+      
+   },function(){
+    $('#repair').css("border-bottom","none");
+   });
+   $('#plum').hover(function(){
+       $('#plum').css("border-bottom","3px solid #eb648c");
+      
+   },function(){
+    $('#plum').css("border-bottom","3px solid #eb648c");
+   });
+});
+
+
+
+$("#reps").click(function() {
+    $('html,body').animate({
+   scrollTop: $("#many-form").offset().top
+});   
+
+$('#repair').css("borderBottom","3px solid #eb648c");
+$('#repair').css("color"," #eb648c");
+$('#many-form').css("background","url({% static 'plumber/mobiles.jpg' %})");
+$('#many-form').css("background-size","cover");
+$('#Elec').css("borderBottom","none");
+$('#elect').css("color","black");
+$('#actives').css("borderBottom","none");
+$('#actives').css("color","black");
+$('#plum').css("borderBottom","none");
+$('#plum').css("color","black");
+$('#otp').css("display","none");
+$('#Elec').css("display","none");
+$('#rep').css("display","none");
+$('#rep').css("display","block");
+$('#actives').hover(function(){
+       $('#actives').css("border-bottom","3px solid #eb648c");
+      
+   },function(){
+    $('#actives').css("border-bottom","none");
+   });
+
+   
+   $('#elect').hover(function(){
+       $('#elect').css("border-bottom","3px solid #eb648c");
+      
+   },function(){
+    $('#elect').css("border-bottom","none");
+   });
+   $('#plum').hover(function(){
+       $('#plum').css("border-bottom","3px solid #eb648c");
+      
+   },function(){
+    $('#plum').css("border-bottom","none");
+   });
+  
+   $('#repair').hover(function(){
+       $('#repair').css("border-bottom","3px solid #eb648c");
+      
+   },function(){
+    $('#repair').css("border-bottom","3px solid #eb648c");
+   });
+});
+
+
+$("#elects").click(function() {
+    $('html,body').animate({
+   scrollTop: $("#many-form").offset().top
+});   
+$('#elect').css("borderBottom","3px solid #eb648c");
+$('#elect').css("color"," #eb648c");
+$('#many-form').css("background","url({% static 'plumber/builder.jpg' %})");
+$('#many-form').css("background-size","cover");
+$('#repair').css("borderBottom","none");
+$('#repair').css("color","black");
+$('#actives').css("borderBottom","none");
+$('#actives').css("color","black");
+$('#plum').css("borderBottom","none");
+$('#plum').css("color","black");
+$('#otp').css("display","none");
+$('#rep').css("display","none");
+$('#Plum').css("display","none");
+$('#Elec').css("display","block");
+$('#actives').hover(function(){
+       $('#actives').css("border-bottom","3px solid #eb648c");
+      
+   },function(){
+    $('#actives').css("border-bottom","none");
+   });
+   $('#plum').hover(function(){
+       $('#plum').css("border-bottom","3px solid #eb648c");
+      
+   },function(){
+    $('#plum').css("border-bottom","none");
+   });
+   $('#repair').hover(function(){
+       $('#repair').css("border-bottom","3px solid #eb648c");
+      
+   },function(){
+    $('#repair').css("border-bottom","none");
+   });
+   
+   $('#elect').hover(function(){
+       $('#elect').css("border-bottom","3px solid #eb648c");
+      
+   },function(){
+    $('#elect').css("border-bottom","3px solid #eb648c");
+   });
+   
+});
+
+
+$("#earns").click(function() {
+    $('html,body').animate({
+   scrollTop: $("#many-form").offset().top
+});   
+$('#actives').css("borderBottom","3px solid #eb648c");
+$('#actives').css("color"," #eb648c");
+$('#many-form').css("background","url({% static 'plumber/home_plumber.jpg' %})");
+$('#many-form').css("background-size","cover");
+$('#repair').css("borderBottom","none");
+$('#repair').css("color","black");
+$('#elect').css("borderBottom","none");
+$('#elect').css("color","black");
+$('#plum').css("borderBottom","none");
+$('#plum').css("color","black");
+$('#Elec').css("display","none");
+$('#rep').css("display","none");
+$('#Plum').css("display","none");
+$('#otp').css("display","block");
+
+$('#elect').hover(function(){
+       $('#elect').css("border-bottom","3px solid #eb648c");
+      
+   },function(){
+    $('#elect').css("border-bottom","none");
+   });
+   $('#plum').hover(function(){
+       $('#plum').css("border-bottom","3px solid #eb648c");
+      
+   },function(){
+    $('#plum').css("border-bottom","none");
+   });
+   $('#repair').hover(function(){
+       $('#repair').css("border-bottom","3px solid #eb648c");
+      
+   },function(){
+    $('#repair').css("border-bottom","none");
+   });
+   $('#actives').hover(function(){
+       $('#actives').css("border-bottom","3px solid #eb648c");
+      
+   },function(){
+    $('#actives').css("border-bottom","3px solid #eb648c");
+   });
+});
+    </script>
+
+
+
+
+<script>
+ 
+        $("#plums1").click(function() {
+           $('html,body').animate({
+          scrollTop: $("#many-form").offset().top
+        
+       });   
+       $('#plum').css("borderBottom","3px solid #eb648c");
+       $('#plum').css("color"," #eb648c");
+       $('#many-form').css("background","url({% static 'plumber/plumer.jpg' %})");
+       $('#many-form').css("background-size","cover");
+       $('#elect').css("borderBottom","none");
+       $('#elect').css("color","black");
+       $('#actives').css("borderBottom","none");
+       $('#actives').css("color","black");
+       $('#repair').css("borderBottom","none");
+       $('#repair').css("color","black");
+       $('#otp').css("display","none");
+       $('#Elect').css("display","none");
+       $('#rep').css("display","none");
+       $('#Plum').css("display","block");
+       $('#actives').hover(function(){
+              $('#actives').css("border-bottom","3px solid #eb648c");
+             
+          },function(){
+           $('#actives').css("border-bottom","none");
+          });
+       
+          $('#elect').hover(function(){
+              $('#elect').css("border-bottom","3px solid #eb648c");
+             
+          },function(){
+           $('#elect').css("border-bottom","none");
+          });
+          $('#repair').hover(function(){
+              $('#repair').css("border-bottom","3px solid #eb648c");
+             
+          },function(){
+           $('#repair').css("border-bottom","none");
+          });
+          $('#plum').hover(function(){
+              $('#plum').css("border-bottom","3px solid #eb648c");
+             
+          },function(){
+           $('#plum').css("border-bottom","3px solid #eb648c");
+          });
+       });
+       
+       
+       
+       $("#reps1").click(function() {
+           $('html,body').animate({
+          scrollTop: $("#many-form").offset().top
+       });   
+       
+       $('#repair').css("borderBottom","3px solid #eb648c");
+       $('#repair').css("color"," #eb648c");
+       $('#many-form').css("background","url({% static 'plumber/mobiles.jpg' %})");
+       $('#many-form').css("background-size","cover");
+       $('#Elec').css("borderBottom","none");
+       $('#elect').css("color","black");
+       $('#actives').css("borderBottom","none");
+       $('#actives').css("color","black");
+       $('#plum').css("borderBottom","none");
+       $('#plum').css("color","black");
+       $('#otp').css("display","none");
+       $('#Elec').css("display","none");
+       $('#rep').css("display","none");
+       $('#rep').css("display","block");
+       $('#actives').hover(function(){
+              $('#actives').css("border-bottom","3px solid #eb648c");
+             
+          },function(){
+           $('#actives').css("border-bottom","none");
+          });
+       
+          
+          $('#elect').hover(function(){
+              $('#elect').css("border-bottom","3px solid #eb648c");
+             
+          },function(){
+           $('#elect').css("border-bottom","none");
+          });
+          $('#plum').hover(function(){
+              $('#plum').css("border-bottom","3px solid #eb648c");
+             
+          },function(){
+           $('#plum').css("border-bottom","none");
+          });
+         
+          $('#repair').hover(function(){
+              $('#repair').css("border-bottom","3px solid #eb648c");
+             
+          },function(){
+           $('#repair').css("border-bottom","3px solid #eb648c");
+          });
+       });
+       
+       
+       $("#elects1").click(function() {
+           $('html,body').animate({
+          scrollTop: $("#many-form").offset().top
+       });   
+       $('#elect').css("borderBottom","3px solid #eb648c");
+       $('#elect').css("color"," #eb648c");
+       $('#many-form').css("background","url({% static 'plumber/builder.jpg' %})");
+       $('#many-form').css("background-size","cover");
+       $('#repair').css("borderBottom","none");
+       $('#repair').css("color","black");
+       $('#actives').css("borderBottom","none");
+       $('#actives').css("color","black");
+       $('#plum').css("borderBottom","none");
+       $('#plum').css("color","black");
+       $('#otp').css("display","none");
+       $('#rep').css("display","none");
+       $('#Plum').css("display","none");
+       $('#Elec').css("display","block");
+       $('#actives').hover(function(){
+              $('#actives').css("border-bottom","3px solid #eb648c");
+             
+          },function(){
+           $('#actives').css("border-bottom","none");
+          });
+          $('#plum').hover(function(){
+              $('#plum').css("border-bottom","3px solid #eb648c");
+             
+          },function(){
+           $('#plum').css("border-bottom","none");
+          });
+          $('#repair').hover(function(){
+              $('#repair').css("border-bottom","3px solid #eb648c");
+             
+          },function(){
+           $('#repair').css("border-bottom","none");
+          });
+          
+          $('#elect').hover(function(){
+              $('#elect').css("border-bottom","3px solid #eb648c");
+             
+          },function(){
+           $('#elect').css("border-bottom","3px solid #eb648c");
+          });
+          
+       });
+       
+       
+       $("#earns1").click(function() {
+           $('html,body').animate({
+          scrollTop: $("#many-form").offset().top
+       });   
+       $('#actives').css("borderBottom","3px solid #eb648c");
+       $('#actives').css("color"," #eb648c");
+       $('#many-form').css("background","url({% static 'plumber/home_plumber.jpg' %})");
+       $('#many-form').css("background-size","cover");
+       $('#repair').css("borderBottom","none");
+       $('#repair').css("color","black");
+       $('#elect').css("borderBottom","none");
+       $('#elect').css("color","black");
+       $('#plum').css("borderBottom","none");
+       $('#plum').css("color","black");
+       $('#Elec').css("display","none");
+       $('#rep').css("display","none");
+       $('#Plum').css("display","none");
+       $('#otp').css("display","block");
+       
+       $('#elect').hover(function(){
+              $('#elect').css("border-bottom","3px solid #eb648c");
+             
+          },function(){
+           $('#elect').css("border-bottom","none");
+          });
+          $('#plum').hover(function(){
+              $('#plum').css("border-bottom","3px solid #eb648c");
+             
+          },function(){
+           $('#plum').css("border-bottom","none");
+          });
+          $('#repair').hover(function(){
+              $('#repair').css("border-bottom","3px solid #eb648c");
+             
+          },function(){
+           $('#repair').css("border-bottom","none");
+          });
+          $('#actives').hover(function(){
+              $('#actives').css("border-bottom","3px solid #eb648c");
+             
+          },function(){
+           $('#actives').css("border-bottom","3px solid #eb648c");
+          });
+       });
+           </script>
+    <!-- <script>
+        function pop_after(){
+      setTimeout(function(){
+        document.getElementById("container").style.opacity=0.3;
+        //document.getElementById("container1").style.display="block";
+          $('#container1').show();
+      },5000);
+    }
+      function pop()
+      {
+        $('#container1').show();
+        document.getElementById("container").style.opacity=0.3;
+  
+      }
+      
+      </script> -->
+</html>

@@ -1,0 +1,962 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ayan Company | Hiring Plumber </title>
+ 
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Bitter|Fjalla+One|Modak|Saira+Stencil+One&display=swap" rel="stylesheet"> -->
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+<!-- Bootstrap core CSS -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+<!-- Material Design Bootstrap -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.10/css/mdb.min.css" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'plumber/home.css' %}">
+    <!-- font-family: c
+font-family: 'Fjalla One', sans-serif;
+font-family: 'Bitter', serif;
+font-family: 'Saira Stencil One', cursive; -->
+</head>
+
+<body style="background-color: #eb648c;">
+    <header>
+    <div class="container" id="head">
+        <nav>
+            <div class="brand" >
+            <a href="#" style="color: white;font-size:3rem;text-decoration: none;">
+                Ayan
+            </a>
+        </div>
+        <div class="menu">
+                <!-- <i class="fas fa-bars" onclick="myfunction()"></i> -->
+                <ul class="nav-list" id="navs">
+                
+               
+                    <li class="nav-items">
+                        <a href="{% url 'profile' username %}" class="nav-link" style="color: #fafafa;"><i class="fas fa-user" style="cursor: pointer;"></i></a> 
+                </li>
+                <li class="nav-items">
+                    <a href="{% url 'orders' username %}" class="nav-link" style="color: #fafafa;"><i class="fas fa-shopping-cart" style="cursor: pointer;"></i></a> 
+            </li>
+                    <li class="nav-items">
+                        <a href="#" class="nav-link" data-toggle="modal" data-target="#exampleModal" style="color: #fafafa;"><i class="fas fa-sign-out-alt" style="cursor: pointer;"></i></a>
+                
+                    </li>
+                
+                    </ul>
+        </div>
+    
+        </nav>
+    </div>
+
+    </header>
+  <br>
+    
+  <main id="main1">
+    <section class="hero" style="height: 80rem;">
+
+
+
+
+
+                    <div class="container" id="con">
+
+                            <div class = "hire ">
+                                    <!-- <h1>Hiring {{ product }}</h1>
+                                    <p>
+                                      Your {{ product }}  Will be reaching by few minutes at Your Given address.
+                                      
+                                    </p>
+                                    <h3 style="padding:1rem;"><i class="fas fa-route" style="transition: none;"></i> Address : {{ address }}</h3>
+                                    <h3 style="padding: 1rem;"><i class="fas fa-mobile-alt" style="transition: none;"></i> Mobile Number : {{ mobile }}</h3>
+                                    <h3 style="padding: 1rem;"><i class="fas fa-mobile-alt" style="transition: none;"></i> Alternate Number : {{ alternate }}</h3>
+                                  <a href="{% url 'editProfile' username %}"><button type="button" class="btn2 btn-info" id="plums" style="font-weight: bold;font-size:1.5rem;padding: 1rem;border: 2px solid white;border-radius: 2rem;">Change details</button></a>
+                                    <a href="{% url 'user_hire' username %}"><button type="button" class="btn btn-success" id="plums" style="font-weight: bold;font-size:1.5rem;">Confirm</button></a>
+                                    <a href="{% url 'valid_user' username %}"><button type="button" class=" btn-warning" id="plums" style="font-weight: bold;font-size:1.5rem;padding: 1rem;border-radius: 2rem;border: 2px solid white;">No, Cancel</button></a> -->
+                                    <!-- Button trigger modal-->
+
+  <!-- Modal: modalAbandonedCart-->
+
+    <div class="modal-dialog modal-side modal-bottom-right modal-notify modal-info" role="document" style="text-transform: initial;border-radius: 2rem !important;">
+      <!--Content-->
+      <div class="modal-content">
+        <!--Header-->
+        <div class="modal-header d-flex justify-content-center" style="background-color: #eb648c;">
+          <h2 class="heading" style="text-transform: uppercase;font-weight:bold;font-size: 1.5rem;">Hiring Plumber
+          </h2>
+
+        </div>
+  
+        <!--Body-->
+        <div class="modal-body">
+  
+          <div class="row">
+            <div class="col-3">
+              <p></p>
+              <p class="text-center"><i class="fas fa-shower fa-4x" style="color: #eb648c;;"></i></p>
+            </div>
+           
+            <div class="col-9" style="font-family: bitter;">
+              <p> Your Plumber Will be reaching by few minutes at Your Given address.</p>
+              <h3 style="padding:1rem;"><i class="fas fa-route" style="transition: none;color:#eb648c;"></i> Address : {{ address }}</h3>
+              <h3 style="padding: 1rem;"><i class="fas fa-mobile-alt" style="transition: none;color: #eb648c;"></i> Mobile Number : {{ mobile }}</h3>
+              <h3 style="padding: 1rem;"><i class="fas fa-mobile-alt" style="transition: none;color:#eb648c;"></i> Alternate Number : {{ alternate }}</h3>
+            </div>
+          </div>
+        </div>
+  
+        <!--Footer-->
+        <div class="modal-footer justify-content-center">
+            <a type="button" class="btn " style="background-color: #eb648c;font-weight: bold;" href="{% url 'plumber_hire' username %}">Confirm</a>
+            <a type="button" class="btn  waves-effect" data-dismiss="modal" style="border:2px solid #eb648c !important;color: #eb648c;background-color: white;font-weight: bold;"href="{% url 'valid_user' username %}">Cancel</a>
+            <a type="button" class="btn " style="background-color: #eb648c;font-weight: bolder;" href="{% url 'editProfile' username %}">Chane My details</a>
+        </div>
+      </div>
+      <!--/.Content-->
+    </div>
+
+  <!-- Modal: modalAbandonedCart-->
+                                </div>
+
+                            <div class="main-message">
+                             
+                                <img src="{% static 'plumber/ma3.png' %}">
+                              
+                            </div>
+                           
+                        </div>
+       
+
+
+    </section >
+
+    
+    
+     
+</main>
+
+<div class="pop" id="pop1" style="    position:absolute;
+left:50%;
+bottom:50%;
+transform: translate(-50%,-50%);
+position:fixed;
+z-index:999999;;background-color:white;width: 35rem;margin: 10px auto;height: 10rem;font-family: sans-serif;display: none; border-top-left-radius: 1rem;border-top-right-radius: 1rem;border-bottom-right-radius: 1rem;border-bottom-left-radius: 1rem;"> 
+      <h3 style="padding: 1rem;">Are you Sure You Want to logout? </h3>
+      <div>
+          <a href ="{% url 'plum-home' %}" style="text-decoration: none;"><button id="bnt" class="btn btn-alerts" style="background-color:  #ff4d4d;padding: 1rem;color: white;border-top-left-radius: 1rem;border-top-right-radius: 1rem;border-bottom-left-radius: 1rem;border-bottom-right-radius:1rem;">YES, Sure</button></a>
+          <button class="btn-success" onclick="back()" style="padding: 1rem;boreder: 2px solid green;border-top-left-radius: 1rem;border-top-right-radius: 1rem;border-bottom-left-radius: 1rem;border-bottom-right-radius:1rem;">No, Cancel</button>
+          <!-- <button type="button" class=" btn-outline-success">Success</button>
+<button type="button" class=" btn-outline-danger">Danger</button> -->
+      </div>
+      <style>
+          
+          #bnt:hover{
+            background-color: red !important;
+          }
+   
+          @media screen and (max-width: 801px)
+{
+.hero{
+    height: 90.5rem !important;
+}
+}
+
+        </style>
+
+</div>
+    <footer style="font-weight: bold;font-size: 1.2rem;background-color: linear-gradient(135deg, rgba(49,24,131,0.9) 0%, rgba(72,56,149,0.8) 100%);">
+        &copy;2019 All Rights Reserved By Ayan Shaikh 
+    </footer>
+    
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document" style="width: 35rem;">
+          <div class="modal-content">
+            <div class="modal-header" style="background-color: #eb648c; color: white;height:5rem;margin-bottom: 2rem;text-align: center;margin-left: -0.1rem;">
+     <h3 class="modal-title" id="exampleModalLabel" style="text-align: center;position: initial;text-align: center">Are You Sure ?</h3>
+      
+            </div>
+            <div class="modal-body" style="text-align: center;">
+                    <i class="fas fa-times fa-4x animated rotateIn" style="color: red;"></i>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class=" btn-success" data-dismiss="modal" style="font-size: 1.5rem;font-weight:bold;padding:1rem;background-color: #eb648c; border:2px solid #fafafa  !important;">Close</button>
+              <a href ="{% url 'plum-home' %}" style="text-decoration: none;"><button type="button" class=" btn-danger" style="font-size: 1.5rem;padding:1rem;font-weight:bold;background-color: #ff9900;border: 2px solid white !important;">Yes, Sure</button></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    <!-- JQuery -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.10/js/mdb.min.js"></script>
+ 
+
+</body>
+<script>
+
+function getCookie(cname) {
+  var name = cname + "=";
+  var ca = document.cookie.split(';');
+  for(var i = 0; i < ca.length; i++) {
+    var c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
+}
+</script>
+
+<script>
+$(document).on('submit','#plums',function(e){
+    // e.preventDefault();
+
+    ajax({
+        type:'POST',
+        url:'/user/hire/',
+        data:{
+            name =getCookie('username'),
+            product = 'Plumber',
+            csrfmiddlewaretoken:getCookie('csrftoken'),
+        },
+        success:function{
+            alert('hiring process is Done')
+        }
+
+    })
+})
+
+
+
+</script>
+
+<script>
+ 
+
+
+
+ function logout()
+ {
+    document.getElementById
+ }
+
+
+function back()
+{
+    document.getElementById('main1').style.opacity="1";
+    document.getElementById('pop1').style.display="none";
+}
+
+function pop(){
+    document.getElementById('main1').style.opacity="0.2";
+    document.getElementById('pop1').style.display="block";
+}
+
+</script>
+<script>
+function myfunction()
+{
+    document.getElementById('navs').style.right=0;
+  
+    document.getElementById('con1').style.opacity=0.3;
+    document.getElementById('con').style.opacity=0.3;
+
+}
+
+function myfunction1()
+{
+    document.getElementById('navs').style.right="-26rem";
+  
+    document.getElementById('con1').style.opacity=1;
+    document.getElementById('con').style.opacity=1;
+
+}
+
+// function active_plumber(){
+// //    document.getElementById('Plum').style.display="block";
+// //    document.getElementById('many-form').style.background="url('./photos/plumer.jpg')";
+//    document.getElementById('otp').style.display="none";
+//    document.getElementById('Plum').style.display="block";
+//    document.getElementById('actives').style.border="none";
+//    document.getElementById('actives').style.color="black";
+//    document.getElementById('plum').style.borderBottom="3px solid #eb648c";
+//    document.getElementById('plum').style.color="#eb648c";
+//    $('#actives').hover(function(){
+//        $('#actives').css("border-bottom","3px solid #eb648c");
+      
+//    },function(){
+//     $('#actives').css("border-bottom","none");
+//    });
+// }
+
+
+
+
+
+function active_elect(){
+//    document.getElementById('Plum').style.display="block";
+   document.getElementById('many-form').style.background="url('{% static 'plumber/builder.jpg' %}')";
+   document.getElementById('many-form').style.backgroundSize="cover";
+   document.getElementById('many-form').style.transition="all 650ms ease-in-out";
+   document.getElementById('otp').style.display="none";
+   document.getElementById('Plum').style.display="none";
+   document.getElementById('rep').style.display="none";
+   document.getElementById('Elec').style.display="block";
+   document.getElementById('Elec').style.transition="all 650ms ease-in-out";
+   document.getElementById('actives').style.color="black";
+   document.getElementById('actives').style.borderBottom="none";
+   document.getElementById('repair').style.borderBottom="none";
+   document.getElementById('plum').style.borderBottom="none";
+   document.getElementById('plum').style.color="black";
+   document.getElementById('repair').style.color="black";
+   document.getElementById('elect').style.borderBottom="3px solid #eb648c";
+   document.getElementById('elect').style.color="#eb648c";
+   $('#actives').hover(function(){
+       $('#actives').css("border-bottom","3px solid #eb648c");
+      
+   },function(){
+    $('#actives').css("border-bottom","none");
+   });
+   $('#plum').hover(function(){
+       $('#plum').css("border-bottom","3px solid #eb648c");
+      
+   },function(){
+    $('#plum').css("border-bottom","none");
+   });
+   $('#repair').hover(function(){
+       $('#repair').css("border-bottom","3px solid #eb648c");
+      
+   },function(){
+    $('#repair').css("border-bottom","none");
+   });
+   
+   $('#elect').hover(function(){
+       $('#elect').css("border-bottom","3px solid #eb648c");
+      
+   },function(){
+    $('#elect').css("border-bottom","3px solid #eb648c");
+   });
+   
+   document.getElementById('elect').style.borderBottom="3px solid #eb648c";
+   document.getElementById('elect').style.color="#eb648c";
+}
+
+// function active_repair(){
+//    document.getElementById('Plum').style.display="block";
+//    document.getElementById('many-form').style.background="url('./photos/plumer.jpg')";
+//    document.getElementById('otp').style.display="none";
+//    document.getElementById('Plum').style.display="none";
+//    document.getElementById('Elect').style.display="none";
+//    document.getElementById('Elect').style.display="block";
+//    document.getElementById('actives').style.color="black";
+//    document.getElementById('actives').style.borderBottom="none";
+//    document.getElementById('plum').style.color="black";
+//    document.getElementById('elect').style.color="black";
+//    document.getElementById('repair').style.borderBottom="3px solid #eb648c";
+//    document.getElementById('repair').style.color="#eb648c";
+//    $('#actives').hover(function(){
+//        $('#actives').css("border-bottom","3px solid #eb648c");
+      
+//    },function(){
+//     $('#actives').css("border-bottom","none");
+//    });
+//    $('#plum').hover(function(){
+//        $('#plum').css("border-bottom","3px solid #eb648c");
+      
+//    },function(){
+//     $('#plum').css("border-bottom","none");
+//    });
+//    $('#elect').hover(function(){
+//        $('#elect').css("border-bottom","3px solid #eb648c");
+      
+//    },function(){
+//     $('#elect').css("border-bottom","none");
+//    });
+// }
+
+
+function active_plumber(){
+//    document.getElementById('Plum').style.display="block";
+   document.getElementById('many-form').style.background="url('{% static 'plumber/plumer.jpg' %}')";
+   document.getElementById('many-form').style.backgroundSize="cover";
+   document.getElementById('many-form').style.transition="all 650ms ease-in-out";
+   document.getElementById('otp').style.display="none";
+   document.getElementById('Plum').style.display="block";
+   document.getElementById('Plum').style.transition="all 650ms ease-in-out";
+   document.getElementById('rep').style.display="none";
+   document.getElementById('Elec').style.display="none";
+   document.getElementById('actives').style.borderBottom="none";
+   document.getElementById('actives').style.color="black";
+   document.getElementById('repair').style.color="black";
+   document.getElementById('elect').style.color="black";
+   document.getElementById('plum').style.borderBottom="3px solid #eb648c";
+   document.getElementById('plum').style.color="#eb648c";
+   document.getElementById('elect').style.borderBottom="none";
+   document.getElementById('elect').color="black";
+   $('#actives').hover(function(){
+       $('#actives').css("border-bottom","3px solid #eb648c");
+      
+   },function(){
+    $('#actives').css("border-bottom","none");
+   });
+
+   $('#elect').hover(function(){
+       $('#elect').css("border-bottom","3px solid #eb648c");
+      
+   },function(){
+    $('#elect').css("border-bottom","none");
+   });
+   $('#repair').hover(function(){
+       $('#repair').css("border-bottom","3px solid #eb648c");
+      
+   },function(){
+    $('#repair').css("border-bottom","none");
+   });
+   $('#plum').hover(function(){
+       $('#plum').css("border-bottom","3px solid #eb648c");
+      
+   },function(){
+    $('#plum').css("border-bottom","3px solid #eb648c");
+   });
+   
+   $('#plum').css("border-bottom","3px solid #eb648c");
+//    $('#plum').css("color","#eb648c");
+}
+
+
+function active_repair(){
+//    document.getElementById('Plum').style.display="block";
+   document.getElementById('many-form').style.background="url('{% static 'plumber/mobiles.jpg' %}')";
+   document.getElementById('many-form').style.backgroundSize="cover";
+   document.getElementById('many-form').style.transition="all 650ms ease-in-out";
+   
+   document.getElementById('otp').style.display="none";
+   document.getElementById('rep').style.display="block";
+   document.getElementById('rep').style.transition="all 650ms ease-in-out";
+   document.getElementById('Plum').style.display="none";
+   document.getElementById('Elec').style.display="none";
+   document.getElementById('actives').style.border="none";
+   document.getElementById('elect').style.borderBottom="none";
+   document.getElementById('repair').style.borderBottom="none";
+   document.getElementById('plum').style.borderBottom="none";
+   document.getElementById('actives').style.color="black";
+   document.getElementById('elect').style.color="black";
+   document.getElementById('plum').style.color="black";
+   document.getElementById('repair').style.borderBottom="3px solid #eb648c";
+   document.getElementById('repair').style.color="#eb648c";
+   $('#actives').hover(function(){
+       $('#actives').css("border-bottom","3px solid #eb648c");
+      
+   },function(){
+    $('#actives').css("border-bottom","none");
+   });
+
+   
+   $('#elect').hover(function(){
+       $('#elect').css("border-bottom","3px solid #eb648c");
+      
+   },function(){
+    $('#elect').css("border-bottom","none");
+   });
+   $('#plum').hover(function(){
+       $('#plum').css("border-bottom","3px solid #eb648c");
+      
+   },function(){
+    $('#plum').css("border-bottom","none");
+   });
+  
+   $('#repair').hover(function(){
+       $('#repair').css("border-bottom","3px solid #eb648c");
+      
+   },function(){
+    $('#repair').css("border-bottom","3px solid #eb648c");
+   });
+   document.getElementById('repair').style.borderBottom="3px solid #eb648c";
+   document.getElementById('repair').style.color="#eb648c";
+}
+
+
+function active_earn(){
+//    document.getElementById('Plum').style.display="block";
+   document.getElementById('elect').style.borderBottom="initial";
+   document.getElementById('actives').style.borderBottom="initial";
+   document.getElementById('plum').style.borderBottom="initial";
+   document.getElementById('repair').style.borderBottom="initial";
+   document.getElementById('many-form').style.background="url('{% static 'plumber/home_plumber.jpg' %}')";
+   document.getElementById('many-form').style.backgroundSize="cover";
+   document.getElementById('many-form').style.transition="all 650ms ease-in-out";
+   document.getElementById('otp').style.display="block";
+   document.getElementById('otp').style.transition="all 650ms ease-in-out";
+   document.getElementById('rep').style.display="none";
+   document.getElementById('Plum').style.display="none";
+   document.getElementById('Elec').style.display="none";
+
+   document.getElementById('elect').style.borderBottom="none";
+   document.getElementById('plum').style.borderBottom="none";
+   document.getElementById('repair').style.borderBottom="none";
+   document.getElementById('elect').style.color="black";
+   document.getElementById('plum').style.color="black";
+   document.getElementById('repair').style.color="black";
+   document.getElementById('actives').style.borderBottom="3px solid #eb648c";
+   document.getElementById('actives').style.color="#eb648c";
+   $('#elect').hover(function(){
+       $('#elect').css("border-bottom","3px solid #eb648c");
+      
+   },function(){
+    $('#elect').css("border-bottom","none");
+   });
+   $('#plum').hover(function(){
+       $('#plum').css("border-bottom","3px solid #eb648c");
+      
+   },function(){
+    $('#plum').css("border-bottom","none");
+   });
+   $('#repair').hover(function(){
+       $('#repair').css("border-bottom","3px solid #eb648c");
+      
+   },function(){
+    $('#repair').css("border-bottom","none");
+   });
+   $('#actives').hover(function(){
+       $('#actives').css("border-bottom","3px solid #eb648c");
+      
+   },function(){
+    $('#actives').css("border-bottom","3px solid #eb648c");
+   });
+
+$('#actives').css(borderBottom="3px solid #eb648c");
+   $('#actives').css(color="#eb648c");
+
+
+
+
+
+//    $('#actives').hover(function(){
+//        $('#actives').css("border-bottom","3px solid #eb648c");
+      
+//    },function(){
+//     $('#actives').css("border-bottom","none");
+//    });
+}
+
+
+
+
+    
+    </script>
+
+    <script>
+ 
+ $("#plums").click(function() {
+    $('html,body').animate({
+   scrollTop: $("#many-form").offset().top
+ 
+});   
+$('#plum').css("borderBottom","3px solid #eb648c");
+$('#plum').css("color"," #eb648c");
+$('#many-form').css("background","url({% static 'plumber/plumer.jpg' %})");
+$('#many-form').css("background-size","cover");
+$('#elect').css("borderBottom","none");
+$('#elect').css("color","black");
+$('#actives').css("borderBottom","none");
+$('#actives').css("color","black");
+$('#repair').css("borderBottom","none");
+$('#repair').css("color","black");
+$('#otp').css("display","none");
+$('#Elect').css("display","none");
+$('#rep').css("display","none");
+$('#Plum').css("display","block");
+$('#actives').hover(function(){
+       $('#actives').css("border-bottom","3px solid #eb648c");
+      
+   },function(){
+    $('#actives').css("border-bottom","none");
+   });
+
+   $('#elect').hover(function(){
+       $('#elect').css("border-bottom","3px solid #eb648c");
+      
+   },function(){
+    $('#elect').css("border-bottom","none");
+   });
+   $('#repair').hover(function(){
+       $('#repair').css("border-bottom","3px solid #eb648c");
+      
+   },function(){
+    $('#repair').css("border-bottom","none");
+   });
+   $('#plum').hover(function(){
+       $('#plum').css("border-bottom","3px solid #eb648c");
+      
+   },function(){
+    $('#plum').css("border-bottom","3px solid #eb648c");
+   });
+});
+
+
+
+$("#reps").click(function() {
+    $('html,body').animate({
+   scrollTop: $("#many-form").offset().top
+});   
+
+$('#repair').css("borderBottom","3px solid #eb648c");
+$('#repair').css("color"," #eb648c");
+$('#many-form').css("background","url({% static 'plumber/mobiles.jpg' %})");
+$('#many-form').css("background-size","cover");
+$('#Elec').css("borderBottom","none");
+$('#elect').css("color","black");
+$('#actives').css("borderBottom","none");
+$('#actives').css("color","black");
+$('#plum').css("borderBottom","none");
+$('#plum').css("color","black");
+$('#otp').css("display","none");
+$('#Elec').css("display","none");
+$('#rep').css("display","none");
+$('#rep').css("display","block");
+$('#actives').hover(function(){
+       $('#actives').css("border-bottom","3px solid #eb648c");
+      
+   },function(){
+    $('#actives').css("border-bottom","none");
+   });
+
+   
+   $('#elect').hover(function(){
+       $('#elect').css("border-bottom","3px solid #eb648c");
+      
+   },function(){
+    $('#elect').css("border-bottom","none");
+   });
+   $('#plum').hover(function(){
+       $('#plum').css("border-bottom","3px solid #eb648c");
+      
+   },function(){
+    $('#plum').css("border-bottom","none");
+   });
+  
+   $('#repair').hover(function(){
+       $('#repair').css("border-bottom","3px solid #eb648c");
+      
+   },function(){
+    $('#repair').css("border-bottom","3px solid #eb648c");
+   });
+});
+
+
+$("#elects").click(function() {
+    $('html,body').animate({
+   scrollTop: $("#many-form").offset().top
+});   
+$('#elect').css("borderBottom","3px solid #eb648c");
+$('#elect').css("color"," #eb648c");
+$('#many-form').css("background","url({% static 'plumber/builder.jpg' %})");
+$('#many-form').css("background-size","cover");
+$('#repair').css("borderBottom","none");
+$('#repair').css("color","black");
+$('#actives').css("borderBottom","none");
+$('#actives').css("color","black");
+$('#plum').css("borderBottom","none");
+$('#plum').css("color","black");
+$('#otp').css("display","none");
+$('#rep').css("display","none");
+$('#Plum').css("display","none");
+$('#Elec').css("display","block");
+$('#actives').hover(function(){
+       $('#actives').css("border-bottom","3px solid #eb648c");
+      
+   },function(){
+    $('#actives').css("border-bottom","none");
+   });
+   $('#plum').hover(function(){
+       $('#plum').css("border-bottom","3px solid #eb648c");
+      
+   },function(){
+    $('#plum').css("border-bottom","none");
+   });
+   $('#repair').hover(function(){
+       $('#repair').css("border-bottom","3px solid #eb648c");
+      
+   },function(){
+    $('#repair').css("border-bottom","none");
+   });
+   
+   $('#elect').hover(function(){
+       $('#elect').css("border-bottom","3px solid #eb648c");
+      
+   },function(){
+    $('#elect').css("border-bottom","3px solid #eb648c");
+   });
+   
+});
+
+
+$("#earns").click(function() {
+    $('html,body').animate({
+   scrollTop: $("#many-form").offset().top
+});   
+$('#actives').css("borderBottom","3px solid #eb648c");
+$('#actives').css("color"," #eb648c");
+$('#many-form').css("background","url({% static 'plumber/home_plumber.jpg' %})");
+$('#many-form').css("background-size","cover");
+$('#repair').css("borderBottom","none");
+$('#repair').css("color","black");
+$('#elect').css("borderBottom","none");
+$('#elect').css("color","black");
+$('#plum').css("borderBottom","none");
+$('#plum').css("color","black");
+$('#Elec').css("display","none");
+$('#rep').css("display","none");
+$('#Plum').css("display","none");
+$('#otp').css("display","block");
+
+$('#elect').hover(function(){
+       $('#elect').css("border-bottom","3px solid #eb648c");
+      
+   },function(){
+    $('#elect').css("border-bottom","none");
+   });
+   $('#plum').hover(function(){
+       $('#plum').css("border-bottom","3px solid #eb648c");
+      
+   },function(){
+    $('#plum').css("border-bottom","none");
+   });
+   $('#repair').hover(function(){
+       $('#repair').css("border-bottom","3px solid #eb648c");
+      
+   },function(){
+    $('#repair').css("border-bottom","none");
+   });
+   $('#actives').hover(function(){
+       $('#actives').css("border-bottom","3px solid #eb648c");
+      
+   },function(){
+    $('#actives').css("border-bottom","3px solid #eb648c");
+   });
+});
+    </script>
+
+
+
+
+<script>
+ 
+        $("#plums1").click(function() {
+           $('html,body').animate({
+          scrollTop: $("#many-form").offset().top
+        
+       });   
+       $('#plum').css("borderBottom","3px solid #eb648c");
+       $('#plum').css("color"," #eb648c");
+       $('#many-form').css("background","url({% static 'plumber/plumer.jpg' %})");
+       $('#many-form').css("background-size","cover");
+       $('#elect').css("borderBottom","none");
+       $('#elect').css("color","black");
+       $('#actives').css("borderBottom","none");
+       $('#actives').css("color","black");
+       $('#repair').css("borderBottom","none");
+       $('#repair').css("color","black");
+       $('#otp').css("display","none");
+       $('#Elect').css("display","none");
+       $('#rep').css("display","none");
+       $('#Plum').css("display","block");
+       $('#actives').hover(function(){
+              $('#actives').css("border-bottom","3px solid #eb648c");
+             
+          },function(){
+           $('#actives').css("border-bottom","none");
+          });
+       
+          $('#elect').hover(function(){
+              $('#elect').css("border-bottom","3px solid #eb648c");
+             
+          },function(){
+           $('#elect').css("border-bottom","none");
+          });
+          $('#repair').hover(function(){
+              $('#repair').css("border-bottom","3px solid #eb648c");
+             
+          },function(){
+           $('#repair').css("border-bottom","none");
+          });
+          $('#plum').hover(function(){
+              $('#plum').css("border-bottom","3px solid #eb648c");
+             
+          },function(){
+           $('#plum').css("border-bottom","3px solid #eb648c");
+          });
+       });
+       
+       
+       
+       $("#reps1").click(function() {
+           $('html,body').animate({
+          scrollTop: $("#many-form").offset().top
+       });   
+       
+       $('#repair').css("borderBottom","3px solid #eb648c");
+       $('#repair').css("color"," #eb648c");
+       $('#many-form').css("background","url({% static 'plumber/mobiles.jpg' %})");
+       $('#many-form').css("background-size","cover");
+       $('#Elec').css("borderBottom","none");
+       $('#elect').css("color","black");
+       $('#actives').css("borderBottom","none");
+       $('#actives').css("color","black");
+       $('#plum').css("borderBottom","none");
+       $('#plum').css("color","black");
+       $('#otp').css("display","none");
+       $('#Elec').css("display","none");
+       $('#rep').css("display","none");
+       $('#rep').css("display","block");
+       $('#actives').hover(function(){
+              $('#actives').css("border-bottom","3px solid #eb648c");
+             
+          },function(){
+           $('#actives').css("border-bottom","none");
+          });
+       
+          
+          $('#elect').hover(function(){
+              $('#elect').css("border-bottom","3px solid #eb648c");
+             
+          },function(){
+           $('#elect').css("border-bottom","none");
+          });
+          $('#plum').hover(function(){
+              $('#plum').css("border-bottom","3px solid #eb648c");
+             
+          },function(){
+           $('#plum').css("border-bottom","none");
+          });
+         
+          $('#repair').hover(function(){
+              $('#repair').css("border-bottom","3px solid #eb648c");
+             
+          },function(){
+           $('#repair').css("border-bottom","3px solid #eb648c");
+          });
+       });
+       
+       
+       $("#elects1").click(function() {
+           $('html,body').animate({
+          scrollTop: $("#many-form").offset().top
+       });   
+       $('#elect').css("borderBottom","3px solid #eb648c");
+       $('#elect').css("color"," #eb648c");
+       $('#many-form').css("background","url({% static 'plumber/builder.jpg' %})");
+       $('#many-form').css("background-size","cover");
+       $('#repair').css("borderBottom","none");
+       $('#repair').css("color","black");
+       $('#actives').css("borderBottom","none");
+       $('#actives').css("color","black");
+       $('#plum').css("borderBottom","none");
+       $('#plum').css("color","black");
+       $('#otp').css("display","none");
+       $('#rep').css("display","none");
+       $('#Plum').css("display","none");
+       $('#Elec').css("display","block");
+       $('#actives').hover(function(){
+              $('#actives').css("border-bottom","3px solid #eb648c");
+             
+          },function(){
+           $('#actives').css("border-bottom","none");
+          });
+          $('#plum').hover(function(){
+              $('#plum').css("border-bottom","3px solid #eb648c");
+             
+          },function(){
+           $('#plum').css("border-bottom","none");
+          });
+          $('#repair').hover(function(){
+              $('#repair').css("border-bottom","3px solid #eb648c");
+             
+          },function(){
+           $('#repair').css("border-bottom","none");
+          });
+          
+          $('#elect').hover(function(){
+              $('#elect').css("border-bottom","3px solid #eb648c");
+             
+          },function(){
+           $('#elect').css("border-bottom","3px solid #eb648c");
+          });
+          
+       });
+       
+       
+       $("#earns1").click(function() {
+           $('html,body').animate({
+          scrollTop: $("#many-form").offset().top
+       });   
+       $('#actives').css("borderBottom","3px solid #eb648c");
+       $('#actives').css("color"," #eb648c");
+       $('#many-form').css("background","url({% static 'plumber/home_plumber.jpg' %})");
+       $('#many-form').css("background-size","cover");
+       $('#repair').css("borderBottom","none");
+       $('#repair').css("color","black");
+       $('#elect').css("borderBottom","none");
+       $('#elect').css("color","black");
+       $('#plum').css("borderBottom","none");
+       $('#plum').css("color","black");
+       $('#Elec').css("display","none");
+       $('#rep').css("display","none");
+       $('#Plum').css("display","none");
+       $('#otp').css("display","block");
+       
+       $('#elect').hover(function(){
+              $('#elect').css("border-bottom","3px solid #eb648c");
+             
+          },function(){
+           $('#elect').css("border-bottom","none");
+          });
+          $('#plum').hover(function(){
+              $('#plum').css("border-bottom","3px solid #eb648c");
+             
+          },function(){
+           $('#plum').css("border-bottom","none");
+          });
+          $('#repair').hover(function(){
+              $('#repair').css("border-bottom","3px solid #eb648c");
+             
+          },function(){
+           $('#repair').css("border-bottom","none");
+          });
+          $('#actives').hover(function(){
+              $('#actives').css("border-bottom","3px solid #eb648c");
+             
+          },function(){
+           $('#actives').css("border-bottom","3px solid #eb648c");
+          });
+       });
+           </script>
+    <!-- <script>
+        function pop_after(){
+      setTimeout(function(){
+        document.getElementById("container").style.opacity=0.3;
+        //document.getElementById("container1").style.display="block";
+          $('#container1').show();
+      },5000);
+    }
+      function pop()
+      {
+        $('#container1').show();
+        document.getElementById("container").style.opacity=0.3;
+  
+      }
+      
+      </script> -->
+</html>
