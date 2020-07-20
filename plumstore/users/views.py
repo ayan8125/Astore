@@ -15,8 +15,8 @@ import smtplib
 from django.contrib.sessions.backends.db import SessionStore
 
 # from plumstore import settings
-account_Sid = 'AC7ce3afd43511ab106a4ff89925a6dc21'
-auth_token = '5d8038bbb2d66923c57823b0998941c1'
+account_Sid = '*******'
+auth_token = '*****'
 email_add = 'ayanshaikh7187@gmail.com'
 def generate_otp():
     strs = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'
@@ -48,7 +48,7 @@ userpattern = re.compile(r'[a-zA-Z0-9]{2,10}')
 # Create your views here.
 #
 
-SECRET_KEY = 'mo9(&5*%g2(o2@o70s1$=l8bgw!wt%j0jd964hikkqu=l*o4_@'
+SECRET_KEY = '******'
 
 
 def base(request):
@@ -72,7 +72,7 @@ def sendemail(usernames, email):
         smtp.ehlo()
         links = 'http://localhost:8000/email_confirm/'
         link = give_token(usernames)
-        smtp.login(email_add,'ocxlsqyxxajskdbo')
+        smtp.login(email_add,'********')
         subject = 'Click on the below link for further processs'
         body = f'{links + link}'
         msg = f'Subject: {subject}\n\nClink on the Give Link , which will take you to your last stage of registration\n\n{body}\n\n\nif you did not made this reuest than simply ignore it'
